@@ -1,35 +1,32 @@
 import mongoose from "mongoose";
 
-const taskSchema = new mongoose.Schema(
-  {
-    title: {
-      type: String,
-      required: true
-    },
+const taskSchema = new mongoose.Schema({
+  title: String,
+  description: String,
 
-    description: {
-      type: String,
-      default: ""
-    },
-
-    status: {
-      type: String,
-      enum: ["todo", "in-progress", "done"],
-      default: "todo"
-    },
-
-    board: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Board",
-      required: true
-    },
-
-    assignedTo: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User"
-    }
+  status: {
+    type: String,
+    enum: ["todo", "in-progress", "finished"],
+    default: "todo"
   },
-  { timestamps: true }
-);
+
+  project: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Project",
+    required: true
+  },
+
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true
+  },
+
+  assignedTo: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+  }
+
+}, { timestamps: true });
 
 export default mongoose.model("Task", taskSchema);
