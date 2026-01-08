@@ -1,58 +1,57 @@
 import express from "express";
-import Task from "../models/Task.js";
+import authMiddleware from "../middleware/authMiddleware.js";
+import {
+  createTask,
+  getTasksByBoard,
+  updateTask,
+  deleteTask
+} from "../controllers/taskController.js";
 
 const router = express.Router();
 
 /**
  * CREATE task
  */
-router.post("/", async (req, res) => {
-  try {
-    const task = await Task.create(req.body);
-    res.status(201).json(task);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
+router.post(
+  "/",
+  authMiddleware,
+  createTask
+);
 
 /**
  * GET tasks by board
  */
-router.get("/board/:boardId", async (req, res) => {
-  try {
-    const tasks = await Task.find({ board: req.params.boardId });
-    res.json(tasks);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
+router.get(
+  "/board/:boardId",
+  authMiddleware,
+  getTasksByBoard
+);
 
 /**
- * UPDATE task status
+ * UPDATE task (details)
  */
-router.patch("/:id", async (req, res) => {
-  try {
-    const task = await Task.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
-    res.json(task);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
+router.patch(
+  "/:id",
+  authMiddleware,
+  updateTask
+);
+
+/**
+ * UPDATE task STATUS (drag & drop)
+ */
+router.patch(
+  "/:id/status",
+  authMiddleware,
+  updateTask
+);
 
 /**
  * DELETE task
  */
-router.delete("/:id", async (req, res) => {
-  try {
-    await Task.findByIdAndDelete(req.params.id);
-    res.json({ message: "Task deleted" });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
+router.delete(
+  "/:id",
+  authMiddleware,
+  deleteTask
+);
 
 export default router;
