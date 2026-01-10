@@ -1,9 +1,9 @@
 import express from "express";
-import { requireAuth } from "../middleware/auth.middleware.js";
+import authMiddleware from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-router.get("/me", requireAuth, (req, res) => {
+router.get("/me", authMiddleware, (req, res) => {
   res.json({
     message: "Protected route accessed",
     user: req.user,
