@@ -1,4 +1,4 @@
-import Task from "../models/Task.js";
+import Task from "../src/models/Task.js";
 
 /**
  * CREATE task
