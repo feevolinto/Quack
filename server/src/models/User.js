@@ -4,17 +4,19 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
   role: {
     type: String,
-    enum: ["admin", "user"],
-    default: "user"
-  }
-}, { timestamps: true });
+    enum: ["admin", "member"],
+    required: true,
+  },
+}, {
+  timestamps: true,
+});
 
 export default mongoose.model("User", userSchema);
