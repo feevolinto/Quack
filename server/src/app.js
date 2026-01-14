@@ -49,6 +49,7 @@ app.use(express.json());
 
 // Test route to verify server is working
 app.get("/test", (req, res) => {
+    console.log("TEST ROUTE HIT!"); // Add this line
   res.json({ message: "Server is working!" });
 });
 
