@@ -1,0 +1,366 @@
+/* src/styles/Login.css */
+
+.login-page {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Background Gradient Placeholder */
+.login-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.login-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Left Side - Branding */
+.login-left {
+  position: relative;
+  z-index: 1;
+  width: 50%; /* Takes exactly half the screen */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  gap: 2rem;
+}
+
+.login-branding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Logo Icon Placeholder */
+.logo-placeholder {
+  width: 150px;
+  height: 150px;
+}
+
+.logo-icon-temp {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f0e100, #a89600);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  font-weight: 800;
+  color: #1a0f2e;
+  box-shadow: 0 10px 40px rgba(240, 225, 0, 0.3);
+}
+
+/* Text Logo */
+.brand-name {
+  color: #f0e100;
+  font-family: 'Poppins', sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  margin: 0;
+  text-transform: lowercase;
+  text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Tagline */
+.brand-tagline {
+  color: #f0e100;
+  text-align: center;
+  text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.25);
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 109.317%;
+  letter-spacing: -1.2px;
+  margin: 0;
+}
+
+.brand-tagline .highlight {
+  font-weight: 600;
+}
+
+/* Right Side - Login Form - FULL HEIGHT GLASS CONTAINER */
+.login-right {
+  position: relative;
+  z-index: 1;
+  width: 50%; /* Takes exactly half the screen */
+  min-height: 100vh; /* Full height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  
+  /* Glass effect applied to entire right side */
+  background: linear-gradient(156deg, 
+    rgba(61, 0, 103, 0.15) -12.94%, 
+    rgba(255, 255, 255, 0.05) 53.77%, 
+    rgba(131, 77, 251, 0.25) 107.38%
+  );
+  backdrop-filter: blur(50px);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Login Container - Remove duplicate background */
+.login-container {
+  width: 100%;
+  max-width: 480px;
+  padding: 3rem 2rem;
+  /* Removed duplicate glass effect - it's now on .login-right */
+}
+
+/* Login Title */
+.login-title {
+  color: #f0e100;
+  text-align: center;
+  text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.25);
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 109.317%;
+  margin: 0 0 0.5rem 0;
+}
+
+/* Login Subtitle */
+.login-subtitle {
+  color: #fff;
+  text-align: center;
+  text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.25);
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 109.317%;
+  margin: 0 0 1.5rem 0;
+}
+
+/* User Type Toggle */
+.user-type-toggle {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.toggle-btn {
+  display: flex;
+  width: 200px;
+  height: 56px;
+  padding: 20px 63px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  color: #fff;
+  text-align: center;
+  text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.25);
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 109.317%;
+}
+
+.toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.toggle-btn.active {
+  background: linear-gradient(135deg, #834dfb, #3d0067);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 20px rgba(131, 77, 251, 0.4);
+}
+
+/* Login Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Error Message */
+.error-message {
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Form Group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Form Label */
+.form-label {
+  color: #fff;
+  text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.25);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 109.317%;
+}
+
+/* Form Input */
+.form-input {
+  width: 100%;
+  height: 56px;
+  padding: 0 1.25rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: linear-gradient(98deg, 
+    rgba(255, 255, 255, 0.15) -26.97%, 
+    rgba(255, 255, 255, 0.05) 52.66%, 
+    rgba(255, 255, 255, 0.25) 116.65%
+  );
+  backdrop-filter: blur(50px);
+  
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  
+  transition: all 0.3s ease;
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.6);
+  background: linear-gradient(98deg, 
+    rgba(255, 255, 255, 0.2) -26.97%, 
+    rgba(255, 255, 255, 0.1) 52.66%, 
+    rgba(255, 255, 255, 0.3) 116.65%
+  );
+}
+
+/* Login Button */
+.login-button {
+  display: flex;
+  width: 100%;
+  height: 56px;
+  padding: 20px 172px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1rem;
+  
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: #3d0067;
+  
+  color: #fff;
+  text-align: center;
+  text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.25);
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 109.317%;
+  
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-button:hover:not(:disabled) {
+  background: #4d0087;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(61, 0, 103, 0.5);
+}
+
+.login-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Footer Logo */
+.login-footer {
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+.footer-logo {
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: lowercase;
+  text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .login-page {
+    flex-direction: column;
+  }
+
+  .login-left,
+  .login-right {
+    width: 100%;
+    min-height: 50vh;
+  }
+
+  .login-left {
+    padding: 2rem;
+  }
+
+  .brand-name {
+    font-size: 3rem;
+  }
+
+  .brand-tagline {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .login-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .user-type-toggle {
+    flex-direction: column;
+  }
+
+  .toggle-btn {
+    width: 100%;
+  }
+
+  .login-button {
+    padding: 20px;
+  }
+
+  .brand-name {
+    font-size: 2.5rem;
+  }
+
+  .logo-icon-temp {
+    font-size: 3rem;
+  }
+}
