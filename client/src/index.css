@@ -15,12 +15,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0f0820;
+  background-color: #180f2a; /* Updated background color */
   color: white;
 }
 
 #root {
   min-height: 100vh;
+  background-color: #180f2a; /* Updated background color */
 }
 
 /* Apply Poppins to all text elements */
