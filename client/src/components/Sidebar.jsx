@@ -3,6 +3,10 @@ import { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "../styles/Sidebar.css";
+import homeIcon from "../assets/home.svg";
+import dashboardIcon from "../assets/dashboard.svg";
+import historyIcon from "../assets/history.svg";
+import logo from "../assets/home_textlogo.svg";
 
 function Sidebar() {
   const { user, logout } = useContext(AuthContext);
@@ -13,18 +17,20 @@ function Sidebar() {
     navigate("/login");
   };
 
-  const navItems = [
-    { path: "/", label: "Home" },
-    { path: "/dashboard", label: "Dashboard" },
-    { path: "/history", label: "History" },
-  ];
+const navItems = [
+  { path: "/", label: "Home", icon: homeIcon },
+  { path: "/dashboard", label: "Dashboard", icon: dashboardIcon },
+  { path: "/history", label: "History", icon: historyIcon },
+];
+
 
   return (
     <aside className="sidebar">
       
       <div className="sidebar-logo">
-        <img src="/src/assets/home_textlogo.svg" alt="Quack" className="brand-name-img" />
-      </div>
+  <img src={logo} alt="Quack" className="brand-name-img" />
+</div>
+
 
       {/* User Profile */}
       <div className="user-profile">
@@ -39,23 +45,26 @@ function Sidebar() {
 
       {/* Navigation */}
       <nav className="sidebar-nav">
-        {navItems.map((item) => (
-          <NavLink
-            key={item.path}
-            to={item.path}
-            className={({ isActive }) =>
-              `nav-item ${isActive ? "active" : ""}`
-            }
-            end={item.path === "/"}
-          >
-            <span>{item.label}</span>
-          </NavLink>
-        ))}
-      </nav>
+  {navItems.map((item) => (
+    <NavLink
+      key={item.path}
+      to={item.path}
+      className={({ isActive }) =>
+        `nav-item ${isActive ? "active" : ""}`
+      }
+      end={item.path === "/"}
+    >
+      <img src={item.icon} alt={item.label} className="nav-icon" />
+      <span className="nav-label">{item.label}</span>
+    </NavLink>
+  ))}
+</nav>
+
 
       {/* Logout Button */}
       <button className="logout-btn" onClick={handleLogout}>
-        <span>Logout</span>
+        <span className="nav-icon">🚪</span>
+        <span className="nav-label">Logout</span>
       </button>
     </aside>
   );
