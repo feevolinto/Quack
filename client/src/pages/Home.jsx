@@ -10,10 +10,10 @@ function Home() {
     <div className="home-page">
       <div className="home-container">
         {/* Header */}
-        <div className="home-header">
-          <div className="home-logo-placeholder">
+        <div className="home-logo-placeholder">
             <img src="/src/assets/home_iconlogo.svg" alt="Quack" className="brand-name-img" />
           </div>
+        <div className="home-header">
           <h1 className="home-title">Home</h1>
         </div>
 
