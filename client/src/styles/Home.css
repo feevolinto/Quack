@@ -12,7 +12,7 @@
   display: flex;
   width: 100%;
   height: calc(100vh - 60px);
-  max-width: 1200px;
+  max-width: 1400px;
   padding: 30px;
   flex-direction: column;
   justify-content: flex-start;
@@ -32,6 +32,7 @@
   gap: 15px;
   align-self: flex-start;
   width: 100%;
+  flex-shrink: 0;
 }
 
 .home-logo-placeholder {
@@ -65,6 +66,7 @@
   gap: 30px;
   width: 100%;
   flex-wrap: wrap;
+  flex-shrink: 0;
 }
 
 /* Team Card */
@@ -172,6 +174,7 @@
   gap: 20px;
   flex: 1;
   overflow: hidden;
+  min-height: 0;
 }
 
 .ongoing-title {
@@ -237,7 +240,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .project-date {
@@ -245,7 +248,7 @@
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-weight: 500;
-  line-height: 18px;
+  line-height: 1.2;
   margin: 0;
 }
 
@@ -254,8 +257,9 @@
   font-family: 'Poppins', sans-serif;
   font-size: 24px;
   font-weight: 900;
-  line-height: 28px;
+  line-height: 1.2;
   margin: 0;
+  margin-top: 4px;
 }
 
 .project-location {
@@ -263,8 +267,9 @@
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-weight: 500;
-  line-height: 18px;
+  line-height: 1.3;
   margin: 0;
+  margin-top: 8px;
 }
 
 .project-location-detail {
@@ -272,8 +277,9 @@
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
   font-weight: 400;
-  line-height: 18px;
+  line-height: 1.4;
   margin: 0;
+  margin-top: 2px;
 }
 
 .project-divider {
@@ -286,26 +292,26 @@
     rgba(203, 203, 203, 0.06) 52.11%, 
     rgba(255, 255, 255, 0.18) 95.39%
   );
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .project-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 .progress-section {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   flex: 1;
 }
 
 .progress-bar {
-  width: 94px;
+  width: 100px;
   height: 6px;
   border-radius: 100px;
   background: rgba(255, 255, 255, 0.1);
@@ -324,57 +330,256 @@
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
   font-weight: 500;
+  line-height: 1.2;
 }
 
 .days-left {
   display: flex;
-  padding: 8px 16px;
+  padding: 10px 18px;
   justify-content: center;
   align-items: center;
   gap: 8px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 20px;
+  flex-shrink: 0;
 }
 
 .days-icon {
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .days-text {
   color: #fff;
   text-align: center;
   font-family: 'Poppins', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
-  line-height: 12px;
+  line-height: 1.2;
 }
 
 /* Responsive Design */
+/* Extra Large Screens */
+@media (min-width: 1600px) {
+  .home-container {
+    max-width: 1600px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 35px;
+  }
+
+  .project-card {
+    padding: 35px;
+    min-height: 320px;
+  }
+
+  .project-card-content {
+    gap: 16px;
+  }
+
+  .project-name {
+    font-size: 26px;
+    margin-top: 6px;
+  }
+
+  .project-location {
+    margin-top: 10px;
+  }
+
+  .project-divider {
+    width: calc(100% + 70px);
+    margin-left: -35px;
+    margin-right: -35px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .project-footer {
+    gap: 24px;
+  }
+
+  .progress-section {
+    gap: 12px;
+  }
+
+  .progress-bar {
+    width: 110px;
+    height: 7px;
+  }
+
+  .progress-text {
+    font-size: 13px;
+  }
+
+  .days-left {
+    padding: 12px 20px;
+    gap: 10px;
+  }
+
+  .days-icon {
+    width: 18px;
+    height: 18px;
+    font-size: 14px;
+  }
+
+  .days-text {
+    font-size: 14px;
+  }
+}
+
+/* Large Screens */
+@media (max-width: 1400px) {
+  .home-container {
+    max-width: 1200px;
+  }
+}
+
+/* Medium-Large Screens */
 @media (max-width: 1200px) {
   .home-container {
-    padding: 30px;
-    height: calc(100vh - 40px);
+    max-width: 1000px;
+    padding: 25px;
+    height: calc(100vh - 50px);
   }
 
   .summary-container {
     min-width: auto;
     flex-wrap: wrap;
     height: auto;
-    flex-shrink: 0;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+  }
+
+  .project-card {
+    padding: 28px;
+    min-height: 290px;
+  }
+
+  .project-card-content {
+    gap: 13px;
+  }
+
+  .project-name {
+    font-size: 23px;
+    margin-top: 4px;
+  }
+
+  .project-location {
+    margin-top: 8px;
+  }
+
+  .project-divider {
+    width: calc(100% + 56px);
+    margin-left: -28px;
+    margin-right: -28px;
+    margin-top: 13px;
+    margin-bottom: 13px;
+  }
+
+  .project-footer {
+    gap: 18px;
+  }
+
+  .progress-section {
+    gap: 9px;
+  }
+
+  .progress-bar {
+    width: 95px;
+  }
+
+  .days-left {
+    padding: 9px 17px;
+  }
+}
+
+/* Medium Screens */
+@media (max-width: 1024px) {
+  .home-container {
+    max-width: 900px;
+    padding: 25px;
+    gap: 25px;
+  }
+
+  .home-top-section {
+    gap: 25px;
+  }
+
+  .summary-container {
+    gap: 12px;
+    padding: 18px;
   }
 
   .projects-grid {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 22px;
+  }
+
+  .project-card {
+    padding: 26px;
+    min-height: 280px;
+  }
+
+  .project-card-content {
+    gap: 12px;
+  }
+
+  .project-name {
+    font-size: 22px;
+  }
+
+  .project-location {
+    margin-top: 7px;
+  }
+
+  .project-divider {
+    width: calc(100% + 52px);
+    margin-left: -26px;
+    margin-right: -26px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  .project-footer {
+    gap: 16px;
+  }
+
+  .progress-section {
+    gap: 8px;
+  }
+
+  .progress-bar {
+    width: 90px;
+  }
+
+  .days-left {
+    padding: 8px 16px;
+  }
+
+  .days-icon {
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+  }
+
+  .days-text {
+    font-size: 12px;
   }
 }
 
+/* Tablets */
 @media (max-width: 768px) {
   .home-container {
+    max-width: 100%;
     padding: 20px;
     gap: 20px;
     height: calc(100vh - 40px);
@@ -383,17 +588,19 @@
   .home-top-section {
     flex-direction: column;
     gap: 20px;
-    flex-shrink: 0;
   }
 
-  .team-card,
+  .team-card {
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+  }
+
   .summary-container {
     width: 100%;
     min-width: auto;
-  }
-
-  .summary-container {
     padding: 20px;
+    height: auto;
   }
 
   .summary-card {
@@ -407,16 +614,173 @@
   }
 
   .project-card {
+    padding: 22px;
+    min-height: 270px;
+  }
+
+  .project-card-content {
+    gap: 11px;
+  }
+
+  .project-date {
+    font-size: 15px;
+  }
+
+  .project-name {
+    font-size: 22px;
+    margin-top: 3px;
+  }
+
+  .project-location {
+    font-size: 15px;
+    margin-top: 7px;
+  }
+
+  .project-location-detail {
+    font-size: 13px;
+  }
+
+  .project-divider {
+    width: calc(100% + 44px);
+    margin-left: -22px;
+    margin-right: -22px;
+    margin-top: 11px;
+    margin-bottom: 11px;
+  }
+
+  .project-footer {
+    gap: 14px;
+  }
+
+  .progress-section {
+    gap: 7px;
+  }
+
+  .progress-bar {
+    width: 85px;
+    height: 5px;
+  }
+
+  .progress-text {
+    font-size: 11px;
+  }
+
+  .days-left {
+    padding: 7px 14px;
+    gap: 7px;
+  }
+
+  .days-icon {
+    width: 14px;
+    height: 14px;
+    font-size: 11px;
+  }
+
+  .days-text {
+    font-size: 11px;
+  }
+}
+
+/* Small Tablets / Large Phones */
+@media (max-width: 640px) {
+  .home-container {
+    padding: 18px;
+    gap: 18px;
+    border-radius: 25px;
+  }
+
+  .home-header {
+    gap: 12px;
+  }
+
+  .home-logo-placeholder {
+    width: 40px;
+    height: 40px;
+  }
+
+  .home-title,
+  .ongoing-title {
+    font-size: 22px;
+  }
+
+  .team-card {
+    padding: 25px;
+  }
+
+  .summary-container {
+    padding: 18px;
+    gap: 10px;
+  }
+
+  .summary-card {
+    padding: 18px;
+  }
+
+  .project-card {
     padding: 20px;
+    min-height: 260px;
+  }
+
+  .project-card-content {
+    gap: 10px;
+  }
+
+  .project-date {
+    font-size: 14px;
+  }
+
+  .project-name {
+    font-size: 21px;
+    margin-top: 2px;
+  }
+
+  .project-location {
+    font-size: 14px;
+    margin-top: 6px;
+  }
+
+  .project-location-detail {
+    font-size: 12px;
+    margin-top: 1px;
   }
 
   .project-divider {
     width: calc(100% + 40px);
     margin-left: -20px;
     margin-right: -20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .project-footer {
+    gap: 12px;
+  }
+
+  .progress-section {
+    gap: 6px;
+  }
+
+  .progress-bar {
+    width: 80px;
+  }
+
+  .days-left {
+    padding: 6px 13px;
+    gap: 6px;
+  }
+
+  .days-icon {
+    width: 13px;
+    height: 13px;
+    font-size: 10px;
+  }
+
+  .days-text {
+    font-size: 11px;
   }
 }
 
+/* Mobile Phones */
 @media (max-width: 480px) {
   .home-container {
     padding: 15px;
@@ -425,31 +789,156 @@
     height: calc(100vh - 30px);
   }
 
+  .home-header {
+    gap: 10px;
+  }
+
+  .home-logo-placeholder {
+    width: 36px;
+    height: 36px;
+  }
+
   .home-title,
   .ongoing-title {
     font-size: 20px;
   }
 
-  .project-name {
-    font-size: 20px;
-    line-height: 24px;
-  }
-
   .team-card {
     padding: 20px;
+    min-height: 130px;
+  }
+
+  .team-name {
+    font-size: 16px;
+  }
+
+  .team-role {
+    font-size: 13px;
+  }
+
+  .summary-container {
+    padding: 15px;
+    gap: 8px;
   }
 
   .summary-card {
     padding: 15px;
+    min-width: auto;
+  }
+
+  .summary-label {
+    font-size: 14px;
+  }
+
+  .summary-value {
+    font-size: 22px;
+  }
+
+  .summary-subtitle {
+    font-size: 12px;
   }
 
   .project-card {
-    padding: 15px;
+    padding: 18px;
+    min-height: 250px;
+  }
+
+  .project-card-content {
+    gap: 9px;
+  }
+
+  .project-date {
+    font-size: 14px;
+  }
+
+  .project-name {
+    font-size: 20px;
+    line-height: 1.2;
+    margin-top: 2px;
+  }
+
+  .project-location {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  .project-location-detail {
+    font-size: 12px;
+    margin-top: 1px;
   }
 
   .project-divider {
-    width: calc(100% + 30px);
-    margin-left: -15px;
-    margin-right: -15px;
+    width: calc(100% + 36px);
+    margin-left: -18px;
+    margin-right: -18px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+  }
+
+  .projects-grid {
+    gap: 15px;
+  }
+
+  .project-footer {
+    gap: 10px;
+  }
+
+  .progress-section {
+    gap: 6px;
+  }
+
+  .progress-bar {
+    width: 75px;
+    height: 5px;
+  }
+
+  .progress-text {
+    font-size: 10px;
+  }
+
+  .days-left {
+    padding: 6px 12px;
+    gap: 5px;
+  }
+
+  .days-icon {
+    width: 12px;
+    height: 12px;
+    font-size: 10px;
+  }
+
+  .days-text {
+    font-size: 10px;
+  }
+}
+
+/* Very Small Phones */
+@media (max-width: 360px) {
+  .home-container {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .home-title,
+  .ongoing-title {
+    font-size: 18px;
+  }
+
+  .summary-card {
+    padding: 12px;
+  }
+
+  .summary-value {
+    font-size: 20px;
+  }
+
+  .project-card {
+    padding: 12px;
+  }
+
+  .project-divider {
+    width: calc(100% + 24px);
+    margin-left: -12px;
+    margin-right: -12px;
   }
 }
