@@ -7,6 +7,7 @@ import homeIcon from "../assets/home.svg";
 import dashboardIcon from "../assets/dashboard.svg";
 import historyIcon from "../assets/history.svg";
 import logo from "../assets/home_textlogo.svg";
+import logoutIcon from "../assets/logout.svg";
 
 function Sidebar() {
   const { user, logout } = useContext(AuthContext);
@@ -63,9 +64,10 @@ const navItems = [
 
       {/* Logout Button */}
       <button className="logout-btn" onClick={handleLogout}>
-        <span className="nav-icon">🚪</span>
+        <img src={logoutIcon} alt="Logout" className="nav-icon" />
         <span className="nav-label">Logout</span>
       </button>
+
     </aside>
   );
 }
