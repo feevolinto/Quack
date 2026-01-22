@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
+import ProjectOverview from "./pages/ProjectOverview"; // Add this import
 import History from "./pages/History";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Layout from "./components/Layout";
@@ -30,6 +31,18 @@ function App() {
           <ProtectedRoute>
             <Layout>
               <Dashboard />
+            </Layout>
+          </ProtectedRoute>
+        }
+      />
+
+      {/* Add this new route */}
+      <Route
+        path="/dashboard/project/:projectId"
+        element={
+          <ProtectedRoute>
+            <Layout>
+              <ProjectOverview />
             </Layout>
           </ProtectedRoute>
         }
