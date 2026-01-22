@@ -6,6 +6,16 @@ import "../styles/Dashboard.css";
 function Dashboard() {
   const navigate = useNavigate();
   
+  const [showCreateModal, setShowCreateModal] = useState(false);
+  const [newProject, setNewProject] = useState({
+    name: "",
+    date: "",
+    location: "",
+    leader: "",
+    committee: "",
+    description: ""
+  });
+  
   const [projects, setProjects] = useState([
     {
       id: 1,
@@ -82,8 +92,44 @@ function Dashboard() {
   ]);
 
   const handleCreateProject = () => {
-    console.log("Create new project");
-    // Add your create project logic here
+    setShowCreateModal(true);
+  };
+
+  const handleCancelCreate = () => {
+    setShowCreateModal(false);
+    setNewProject({
+      name: "",
+      date: "",
+      location: "",
+      leader: "",
+      committee: "",
+      description: ""
+    });
+  };
+
+  const handleSubmitProject = () => {
+    // Add your project creation logic here
+    console.log("Creating project:", newProject);
+    
+    // Example: Add new project to the list
+    const project = {
+      id: projects.length + 1,
+      name: newProject.name,
+      date: newProject.date,
+      location: newProject.location,
+      leader: newProject.leader,
+      status: "active"
+    };
+    
+    setProjects([...projects, project]);
+    handleCancelCreate();
+  };
+
+  const handleInputChange = (field, value) => {
+    setNewProject({
+      ...newProject,
+      [field]: value
+    });
   };
 
   const handleDeleteProject = (id) => {
@@ -169,6 +215,100 @@ function Dashboard() {
           </div>
         </div>
       </div>
+
+      {/* Create Project Modal */}
+      {showCreateModal && (
+        <div className="modal-overlay">
+          <div className="new-project-modal">
+            <h2 className="new-project-title">New Project</h2>
+            
+            <div className="form-row">
+              <div className="form-field full-width">
+                <label className="form-label">Project Name</label>
+                <input
+                  type="text"
+                  className="form-input"
+                  placeholder="Enter project name"
+                  value={newProject.name}
+                  onChange={(e) => handleInputChange('name', e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-field">
+                <label className="form-label">Date</label>
+                <input
+                  type="text"
+                  className="form-input"
+                  placeholder="Enter date"
+                  value={newProject.date}
+                  onChange={(e) => handleInputChange('date', e.target.value)}
+                />
+              </div>
+              <div className="form-field">
+                <label className="form-label">Location</label>
+                <input
+                  type="text"
+                  className="form-input"
+                  placeholder="Enter location"
+                  value={newProject.location}
+                  onChange={(e) => handleInputChange('location', e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-field full-width">
+                <label className="form-label">Project Leader</label>
+                <input
+                  type="text"
+                  className="form-input"
+                  placeholder="Enter project leader"
+                  value={newProject.leader}
+                  onChange={(e) => handleInputChange('leader', e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-field full-width">
+                <label className="form-label">Committee Assigned</label>
+                <input
+                  type="text"
+                  className="form-input"
+                  placeholder="Enter committee assigned"
+                  value={newProject.committee}
+                  onChange={(e) => handleInputChange('committee', e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-field full-width">
+                <label className="form-label">Description</label>
+                <textarea
+                  className="form-textarea"
+                  placeholder="Enter description"
+                  rows="6"
+                  value={newProject.description}
+                  onChange={(e) => handleInputChange('description', e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div className="modal-actions">
+              <button className="cancel-btn-form" onClick={handleCancelCreate}>
+                Cancel
+              </button>
+              <button className="submit-btn-form" onClick={handleSubmitProject}>
+                <span className="create-icon">+</span>
+                <span>Create New Project</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
