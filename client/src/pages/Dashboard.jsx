@@ -1,8 +1,11 @@
 // src/pages/Dashboard.jsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Dashboard.css";
 
 function Dashboard() {
+  const navigate = useNavigate();
+  
   const [projects, setProjects] = useState([
     {
       id: 1,
@@ -95,6 +98,10 @@ function Dashboard() {
     ));
   };
 
+  const handleProjectClick = (projectId) => {
+    navigate(`/dashboard/project/${projectId}`);
+  };
+
   return (
     <div className="dashboard-page">
       <div className="dashboard-container">
@@ -128,7 +135,7 @@ function Dashboard() {
           <div className="table-body">
             {projects.map((project, index) => (
               <div key={project.id}>
-                <div className="table-row">
+                <div className="table-row" onClick={() => handleProjectClick(project.id)}>
                   <div className="table-cell project-name-col">{project.name}</div>
                   <div className="table-cell date-col">{project.date}</div>
                   <div className="table-cell location-col">{project.location}</div>
@@ -136,7 +143,10 @@ function Dashboard() {
                   <div className="table-cell status-col">
                     <button 
                       className={`status-badge ${project.status}`}
-                      onClick={() => toggleStatus(project.id)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleStatus(project.id);
+                      }}
                     >
                       {project.status === "active" ? "Active" : "Inactive"}
                     </button>
@@ -144,7 +154,10 @@ function Dashboard() {
                   <div className="table-cell action-col">
                     <button 
                       className="delete-btn"
-                      onClick={() => handleDeleteProject(project.id)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleDeleteProject(project.id);
+                      }}
                     >
                       🗑️
                     </button>
