@@ -1,6 +1,7 @@
 // src/pages/ProjectOverview.jsx
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import AddTaskModal from "../components/AddTaskModal";
 import "../styles/ProjectOverview.css";
 
 function ProjectOverview() {
@@ -8,6 +9,8 @@ function ProjectOverview() {
   const { projectId } = useParams();
   
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showAddTaskModal, setShowAddTaskModal] = useState(false);
+  const [selectedColumn, setSelectedColumn] = useState(null);
   
   const [project] = useState({
     name: "Event Name: Lorem ipsum",
@@ -35,7 +38,15 @@ function ProjectOverview() {
   });
 
   const handleAddTask = (column) => {
-    console.log(`Add task to ${column}`);
+    setSelectedColumn(column);
+    setShowAddTaskModal(true);
+  };
+
+  const handleCreateTask = (column, newTask) => {
+    setTasks(prevTasks => ({
+      ...prevTasks,
+      [column]: [...prevTasks[column], newTask]
+    }));
   };
 
   const handleEditTask = (taskId) => {
@@ -265,6 +276,14 @@ function ProjectOverview() {
           </div>
         </div>
       )}
+
+      {/* Add Task Modal */}
+      <AddTaskModal
+        isOpen={showAddTaskModal}
+        onClose={() => setShowAddTaskModal(false)}
+        columnType={selectedColumn}
+        onAddTask={handleCreateTask}
+      />
     </div>
   );
 }
