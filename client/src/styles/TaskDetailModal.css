@@ -1,0 +1,203 @@
+/* src/styles/TaskDetailModal.css */
+
+.task-detail-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.task-detail-modal-container {
+  display: flex;
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  padding: 30px;
+  flex-direction: column;
+  gap: 25px;
+  border-radius: 20px;
+  border: 1px solid var(--glass-outline, rgba(255, 255, 255, 0.40));
+  background: linear-gradient(98deg, rgba(255, 255, 255, 0.10) -26.97%, rgba(255, 255, 255, 0.025) 52.66%, rgba(255, 255, 255, 0.15) 116.65%);
+  backdrop-filter: blur(50px);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  overflow-y: auto;
+}
+
+/* Custom Scrollbar */
+.task-detail-modal-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.task-detail-modal-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.task-detail-modal-container::-webkit-scrollbar-thumb {
+  background: rgba(109, 109, 109, 0.5);
+  border-radius: 10px;
+}
+
+.task-detail-modal-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(131, 77, 251, 0.7);
+}
+
+/* Header */
+.task-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-detail-title {
+  color: #f0e100;
+  text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.25);
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 28px;
+  margin: 0;
+}
+
+.task-detail-close-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.task-detail-close-btn:hover {
+  background: rgba(231, 76, 60, 0.2);
+  border-color: #e74c3c;
+}
+
+/* Content */
+.task-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.task-detail-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task-detail-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.task-detail-label {
+  color: #9e9e9e;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.task-detail-value {
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.task-detail-link {
+  color: #834dfb;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  word-break: break-all;
+}
+
+.task-detail-link:hover {
+  color: #9d6bff;
+  text-decoration: underline;
+}
+
+/* Actions */
+.task-detail-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.task-detail-close-action {
+  display: flex;
+  width: 138px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: #834dfb;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.task-detail-close-action:hover {
+  background: #6d3dd6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(131, 77, 251, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .task-detail-modal-container {
+    padding: 25px;
+    gap: 20px;
+  }
+
+  .task-detail-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .task-detail-modal-container {
+    padding: 20px;
+    gap: 18px;
+  }
+
+  .task-detail-title {
+    font-size: 20px;
+  }
+
+  .task-detail-close-action {
+    width: 100%;
+  }
+}
