@@ -45,33 +45,8 @@
 
 /* Logo Icon Placeholder */
 .logo-placeholder {
-  width: 150px;
-  height: 150px;
-}
-
-.logo-icon-temp {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #f0e100, #a89600);
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 4rem;
-  font-weight: 800;
-  color: #1a0f2e;
-  box-shadow: 0 10px 40px rgba(240, 225, 0, 0.3);
-}
-
-/* Text Logo */
-.brand-name {
-  color: #f0e100;
-  font-family: 'Poppins', sans-serif;
-  font-size: 4rem;
-  font-weight: 800;
-  margin: 0;
-  text-transform: lowercase;
-  text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.25);
+  width: 225px;
+  height: 200px;
 }
 
 /* Tagline */
