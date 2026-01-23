@@ -7,6 +7,7 @@
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,8 +24,9 @@
   flex-direction: column;
   gap: 25px;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  background: #180f2a;
+  border: 1px solid var(--glass-outline, rgba(255, 255, 255, 0.40));
+  background: linear-gradient(98deg, rgba(255, 255, 255, 0.10) -26.97%, rgba(255, 255, 255, 0.025) 52.66%, rgba(255, 255, 255, 0.15) 116.65%);
+  backdrop-filter: blur(50px);
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   overflow-y: auto;
 }
