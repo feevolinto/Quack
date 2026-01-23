@@ -1,8 +1,14 @@
 // src/pages/ProjectOverview.jsx
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import AddTaskModal from "../components/AddTaskModal";
+import AddTaskModal from "../components/tasks/AddTaskModal";
+import EditTaskModal from "../components/tasks/EditTaskModal";
+import TaskDetailModal from "../components/tasks/TaskDetailModal";
 import "../styles/ProjectOverview.css";
+import editIcon from "../assets/edit.svg";
+import deleteIcon from "../assets/delete.svg";
+import addIcon from "../assets/add.svg";
+import rightIcon from "../assets/right.svg";
 
 function ProjectOverview() {
   const navigate = useNavigate();
@@ -10,7 +16,12 @@ function ProjectOverview() {
   
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
+  const [showEditTaskModal, setShowEditTaskModal] = useState(false);
+  const [showTaskDetailModal, setShowTaskDetailModal] = useState(false);
   const [selectedColumn, setSelectedColumn] = useState(null);
+  const [selectedTask, setSelectedTask] = useState(null);
+  const [draggedTask, setDraggedTask] = useState(null);
+  const [draggedFromColumn, setDraggedFromColumn] = useState(null);
   
   const [project] = useState({
     name: "Event Name: Lorem ipsum",
@@ -22,18 +33,18 @@ function ProjectOverview() {
 
   const [tasks, setTasks] = useState({
     todo: [
-      { id: 1, name: "Task name: Lorem ipsum", priority: "High", assignedTo: "Feevol Into", committee: "Operations", days: 10 },
-      { id: 2, name: "Task name: Lorem ipsum", priority: "Medium", assignedTo: "Feevol Into", committee: "Operations", days: 10 },
-      { id: 3, name: "Task name: Lorem ipsum", priority: "Low", assignedTo: "Feevol Into", committee: "Operations", days: 10 }
+      { id: 1, name: "Task name: Lorem ipsum", priority: "High", assignedTo: "Feevol Into", committee: "Operations", days: 10, date: "2026-02-02", link: "", description: "Task description here" },
+      { id: 2, name: "Task name: Lorem ipsum", priority: "Medium", assignedTo: "Feevol Into", committee: "Operations", days: 10, date: "2026-02-02", link: "", description: "" },
+      { id: 3, name: "Task name: Lorem ipsum", priority: "Low", assignedTo: "Feevol Into", committee: "Operations", days: 10, date: "2026-02-02", link: "", description: "" }
     ],
     inProgress: [
-      { id: 4, name: "Task name: Lorem ipsum", priority: "High", assignedTo: "Feevol Into", committee: "Operations", days: 10 },
-      { id: 5, name: "Task name: Lorem ipsum", priority: "Medium", assignedTo: "Feevol Into", committee: "Operations", days: 10 },
-      { id: 6, name: "Task name: Lorem ipsum", priority: "Low", assignedTo: "Feevol Into", committee: "Operations", days: 10 }
+      { id: 4, name: "Task name: Lorem ipsum", priority: "High", assignedTo: "Feevol Into", committee: "Operations", days: 10, date: "2026-02-02", link: "", description: "" },
+      { id: 5, name: "Task name: Lorem ipsum", priority: "Medium", assignedTo: "Feevol Into", committee: "Operations", days: 10, date: "2026-02-02", link: "", description: "" },
+      { id: 6, name: "Task name: Lorem ipsum", priority: "Low", assignedTo: "Feevol Into", committee: "Operations", days: 10, date: "2026-02-02", link: "", description: "" }
     ],
     finished: [
-      { id: 7, name: "Task name: Lorem ipsum", priority: "High", assignedTo: "Feevol Into", committee: "Operations", days: 10 },
-      { id: 8, name: "Task name: Lorem ipsum", priority: "Medium", assignedTo: "Feevol Into", committee: "Operations", days: 10 }
+      { id: 7, name: "Task name: Lorem ipsum", priority: "High", assignedTo: "Feevol Into", committee: "Operations", days: 10, date: "2026-02-02", link: "", description: "" },
+      { id: 8, name: "Task name: Lorem ipsum", priority: "Medium", assignedTo: "Feevol Into", committee: "Operations", days: 10, date: "2026-02-02", link: "", description: "" }
     ]
   });
 
@@ -49,8 +60,25 @@ function ProjectOverview() {
     }));
   };
 
-  const handleEditTask = (taskId) => {
-    console.log(`Edit task ${taskId}`);
+  const handleEditTask = (e, task, column) => {
+    e.stopPropagation();
+    setSelectedTask(task);
+    setSelectedColumn(column);
+    setShowEditTaskModal(true);
+  };
+
+  const handleUpdateTask = (updatedTask) => {
+    setTasks(prevTasks => ({
+      ...prevTasks,
+      [selectedColumn]: prevTasks[selectedColumn].map(task => 
+        task.id === updatedTask.id ? updatedTask : task
+      )
+    }));
+  };
+
+  const handleTaskClick = (task) => {
+    setSelectedTask(task);
+    setShowTaskDetailModal(true);
   };
 
   const handleEditProject = () => {
@@ -67,13 +95,118 @@ function ProjectOverview() {
     navigate("/dashboard");
   };
 
+  // Drag and Drop handlers
+  const handleDragStart = (e, task, column) => {
+    setDraggedTask(task);
+    setDraggedFromColumn(column);
+    e.dataTransfer.effectAllowed = "move";
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+  };
+
+  const handleDrop = (e, targetColumn) => {
+    e.preventDefault();
+    
+    if (!draggedTask || draggedFromColumn === targetColumn) {
+      return;
+    }
+
+    // Remove task from original column
+    const updatedFromColumn = tasks[draggedFromColumn].filter(
+      task => task.id !== draggedTask.id
+    );
+
+    // Add task to target column
+    const updatedToColumn = [...tasks[targetColumn], draggedTask];
+
+    setTasks({
+      ...tasks,
+      [draggedFromColumn]: updatedFromColumn,
+      [targetColumn]: updatedToColumn
+    });
+
+    setDraggedTask(null);
+    setDraggedFromColumn(null);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedTask(null);
+    setDraggedFromColumn(null);
+  };
+
+  const renderTaskColumn = (columnKey, columnTitle, colorClass) => {
+    return (
+      <div 
+        className="task-column"
+        onDragOver={handleDragOver}
+        onDrop={(e) => handleDrop(e, columnKey)}
+      >
+        <div className="task-column-header">
+          <div className="column-label-wrapper">
+            <div className={`column-color-label ${colorClass}`}></div>
+            <h3 className="column-title">{columnTitle}</h3>
+            <div className="task-count">
+              <span>{tasks[columnKey].length}</span>
+            </div>
+          </div>
+          <button className="add-task-btn" onClick={() => handleAddTask(columnKey)}>
+            <img src={addIcon} alt="add" className="nav-icon" />
+          </button>
+        </div>
+        
+        <div className="task-list">
+          {tasks[columnKey].map((task) => (
+            <div 
+              key={task.id} 
+              className="task-card"
+              draggable
+              onDragStart={(e) => handleDragStart(e, task, columnKey)}
+              onDragEnd={handleDragEnd}
+              onClick={() => handleTaskClick(task)}
+            >
+              <div className="task-card-header">
+                <span className="task-priority">{task.priority}</span>
+                <button 
+                  className="task-edit-btn" 
+                  onClick={(e) => handleEditTask(e, task, columnKey)}
+                >
+                  <img src={editIcon} alt="edit" className="nav-icon" />
+                </button>
+              </div>
+              <h4 className="task-name">{task.name}</h4>
+              <div className="task-assignment">
+                <div className="task-assignment-item">
+                  <span className="assignment-label">Assigned to:</span>
+                  <span className="assignment-value">{task.assignedTo}</span>
+                </div>
+                <div className="task-assignment-item">
+                  <span className="assignment-label">Committee:</span>
+                  <span className="assignment-value">{task.committee}</span>
+                </div>
+              </div>
+              <div className="task-footer">
+                <div className="days-left">
+                  <span className="days-icon">⏱</span>
+                  <span className="days-text">{task.days} days</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="project-overview-page">
       <div className="project-overview-container">
         {/* Breadcrumb */}
         <div className="breadcrumb">
-          <span className="breadcrumb-link" onClick={() => navigate("/dashboard")}>Dashboard</span>
-          <span className="breadcrumb-separator">›</span>
+          <span className="breadcrumb-link" onClick={() => navigate("/dashboard")}>Project Dashboard</span>
+          <span className="breadcrumb-separator"><img src={rightIcon} alt="next" className="nav-icon" /></span>
           <span className="breadcrumb-current">Project Overview</span>
         </div>
 
@@ -108,10 +241,10 @@ function ProjectOverview() {
 
           <div className="project-actions">
             <button className="action-btn edit-btn" onClick={handleEditProject}>
-              ✏️
+              <img src={editIcon} alt="edit" className="nav-icon" />
             </button>
             <button className="action-btn delete-btn-icon" onClick={handleDeleteProject}>
-              🗑️
+              <img src={deleteIcon} alt="delete" className="nav-icon" />
             </button>
           </div>
         </div>
@@ -121,146 +254,9 @@ function ProjectOverview() {
 
         {/* Tasks Board */}
         <div className="tasks-board">
-          {/* To Do Column */}
-          <div className="task-column">
-            <div className="task-column-header">
-              <div className="column-label-wrapper">
-                <div className="column-color-label todo"></div>
-                <h3 className="column-title">To do</h3>
-                <div className="task-count">
-                  <span>{tasks.todo.length}</span>
-                </div>
-              </div>
-              <button className="add-task-btn" onClick={() => handleAddTask('todo')}>
-                +
-              </button>
-            </div>
-            
-            <div className="task-list">
-              {tasks.todo.map((task) => (
-                <div key={task.id} className="task-card">
-                  <div className="task-card-header">
-                    <span className="task-priority">{task.priority}</span>
-                    <button className="task-edit-btn" onClick={() => handleEditTask(task.id)}>
-                      ✏️
-                    </button>
-                  </div>
-                  <h4 className="task-name">{task.name}</h4>
-                  <div className="task-assignment">
-                    <div className="task-assignment-item">
-                      <span className="assignment-label">Assigned to:</span>
-                      <span className="assignment-value">{task.assignedTo}</span>
-                    </div>
-                    <div className="task-assignment-item">
-                      <span className="assignment-label">Committee:</span>
-                      <span className="assignment-value">{task.committee}</span>
-                    </div>
-                  </div>
-                  <div className="task-divider"></div>
-                  <div className="task-footer">
-                    <div className="days-left">
-                      <span className="days-icon">⏱</span>
-                      <span className="days-text">{task.days} days</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* In Progress Column */}
-          <div className="task-column">
-            <div className="task-column-header">
-              <div className="column-label-wrapper">
-                <div className="column-color-label in-progress"></div>
-                <h3 className="column-title">In progress</h3>
-                <div className="task-count">
-                  <span>{tasks.inProgress.length}</span>
-                </div>
-              </div>
-              <button className="add-task-btn" onClick={() => handleAddTask('inProgress')}>
-                +
-              </button>
-            </div>
-            
-            <div className="task-list">
-              {tasks.inProgress.map((task) => (
-                <div key={task.id} className="task-card">
-                  <div className="task-card-header">
-                    <span className="task-priority">{task.priority}</span>
-                    <button className="task-edit-btn" onClick={() => handleEditTask(task.id)}>
-                      ✏️
-                    </button>
-                  </div>
-                  <h4 className="task-name">{task.name}</h4>
-                  <div className="task-assignment">
-                    <div className="task-assignment-item">
-                      <span className="assignment-label">Assigned to:</span>
-                      <span className="assignment-value">{task.assignedTo}</span>
-                    </div>
-                    <div className="task-assignment-item">
-                      <span className="assignment-label">Committee:</span>
-                      <span className="assignment-value">{task.committee}</span>
-                    </div>
-                  </div>
-                  <div className="task-divider"></div>
-                  <div className="task-footer">
-                    <div className="days-left">
-                      <span className="days-icon">⏱</span>
-                      <span className="days-text">{task.days} days</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Finished Column */}
-          <div className="task-column">
-            <div className="task-column-header">
-              <div className="column-label-wrapper">
-                <div className="column-color-label finished"></div>
-                <h3 className="column-title">Finished</h3>
-                <div className="task-count">
-                  <span>{tasks.finished.length}</span>
-                </div>
-              </div>
-              <button className="add-task-btn" onClick={() => handleAddTask('finished')}>
-                +
-              </button>
-            </div>
-            
-            <div className="task-list">
-              {tasks.finished.map((task) => (
-                <div key={task.id} className="task-card">
-                  <div className="task-card-header">
-                    <span className="task-priority">{task.priority}</span>
-                    <button className="task-edit-btn" onClick={() => handleEditTask(task.id)}>
-                      ✏️
-                    </button>
-                  </div>
-                  <h4 className="task-name">{task.name}</h4>
-                  <div className="task-assignment">
-                    <div className="task-assignment-item">
-                      <span className="assignment-label">Assigned to:</span>
-                      <span className="assignment-value">{task.assignedTo}</span>
-                    </div>
-                    <div className="task-assignment-item">
-                      <span className="assignment-label">Committee:</span>
-                      <span className="assignment-value">{task.committee}</span>
-                    </div>
-                  </div>
-                  <div className="task-divider"></div>
-                  <div className="task-footer">
-                    <div className="days-left">
-                      <span className="days-icon">⏱</span>
-                      <span className="days-text">{task.days} days</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          {renderTaskColumn('todo', 'To do', 'todo')}
+          {renderTaskColumn('inProgress', 'In progress', 'in-progress')}
+          {renderTaskColumn('finished', 'Finished', 'finished')}
         </div>
       </div>
 
@@ -283,6 +279,21 @@ function ProjectOverview() {
         onClose={() => setShowAddTaskModal(false)}
         columnType={selectedColumn}
         onAddTask={handleCreateTask}
+      />
+
+      {/* Edit Task Modal */}
+      <EditTaskModal
+        isOpen={showEditTaskModal}
+        onClose={() => setShowEditTaskModal(false)}
+        task={selectedTask}
+        onUpdateTask={handleUpdateTask}
+      />
+
+      {/* Task Detail Modal */}
+      <TaskDetailModal
+        isOpen={showTaskDetailModal}
+        onClose={() => setShowTaskDetailModal(false)}
+        task={selectedTask}
       />
     </div>
   );
