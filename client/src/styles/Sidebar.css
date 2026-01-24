@@ -35,7 +35,7 @@
   width: 100%;
   height: auto;
   border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid #834DFB;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(50px);
 }
@@ -110,11 +110,7 @@
 
 .nav-item.active {
   border: 1px solid rgba(255, 255, 255, 0.4);
-  background: linear-gradient(93deg, 
-    rgba(255, 255, 255, 0.15) -23.31%, 
-    rgba(255, 255, 255, 0.05) 58.21%, 
-    rgba(255, 255, 255, 0.25) 123.71%
-  );
+  background: rgba(255, 255, 255, 0.05);
   color: #f0e100;
 }
 
