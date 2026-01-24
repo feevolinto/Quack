@@ -1,7 +1,7 @@
 // src/utils/mockData.js
 
 export const mockTeam = {
-  name: "F Creative Studio and Multimedia",
+  name: "AWS Cloud Club UP Mindanao",
   role: "Team"
 };
 
