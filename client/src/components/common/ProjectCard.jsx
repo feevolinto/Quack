@@ -1,7 +1,7 @@
 // src/components/common/ProjectCard.jsx
-function ProjectCard({ project }) {
+function ProjectCard({ project, onClick }) {
   return (
-    <div className="project-card">
+    <div className="project-card" onClick={onClick}>
       <div className="project-card-content">
         <p className="project-date">{project.date}</p>
         <h3 className="project-name">{project.name}</h3>
