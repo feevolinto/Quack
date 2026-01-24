@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import AddTaskModal from "../components/tasks/AddTaskModal";
 import EditTaskModal from "../components/tasks/EditTaskModal";
 import TaskDetailModal from "../components/tasks/TaskDetailModal";
+import EditProjectModal from "../components/tasks/EditProjectModal";
 import "../styles/ProjectOverview.css";
 import editIcon from "../assets/edit.svg";
 import deleteIcon from "../assets/delete.svg";
@@ -18,17 +19,19 @@ function ProjectOverview() {
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
   const [showEditTaskModal, setShowEditTaskModal] = useState(false);
   const [showTaskDetailModal, setShowTaskDetailModal] = useState(false);
+  const [showEditProjectModal, setShowEditProjectModal] = useState(false);
   const [selectedColumn, setSelectedColumn] = useState(null);
   const [selectedTask, setSelectedTask] = useState(null);
   const [draggedTask, setDraggedTask] = useState(null);
   const [draggedFromColumn, setDraggedFromColumn] = useState(null);
   
-  const [project] = useState({
+  const [project, setProject] = useState({
     name: "Event Name: Lorem ipsum",
-    date: "January 10, 2026",
+    date: "2026-01-10",
     lead: "Feevol Into",
     location: "123 Lorem ipsum dolor sit amet, Davao City, 8000",
-    description: "Lorem ipsum dolor sit amet orem ipsum dolor sit amet orem ipsum dolor sit amet"
+    description: "Lorem ipsum dolor sit amet orem ipsum dolor sit amet orem ipsum dolor sit amet",
+    committee: "Operations Committee"
   });
 
   const [tasks, setTasks] = useState({
@@ -82,7 +85,11 @@ function ProjectOverview() {
   };
 
   const handleEditProject = () => {
-    console.log("Edit project");
+    setShowEditProjectModal(true);
+  };
+
+  const handleUpdateProject = (updatedProject) => {
+    setProject(updatedProject);
   };
 
   const handleDeleteProject = () => {
@@ -135,6 +142,16 @@ function ProjectOverview() {
   const handleDragEnd = () => {
     setDraggedTask(null);
     setDraggedFromColumn(null);
+  };
+
+  const formatDate = (dateString) => {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
   };
 
   const renderTaskColumn = (columnKey, columnTitle, colorClass) => {
@@ -206,7 +223,9 @@ function ProjectOverview() {
         {/* Breadcrumb */}
         <div className="breadcrumb">
           <span className="breadcrumb-link" onClick={() => navigate("/dashboard")}>Project Dashboard</span>
-          <span className="breadcrumb-separator"><img src={rightIcon} alt="next" className="nav-icon" /></span>
+          <span className="breadcrumb-separator">
+            <img src={rightIcon} alt="next" className="nav-icon" />
+          </span>
           <span className="breadcrumb-current">Project Overview</span>
         </div>
 
@@ -215,7 +234,7 @@ function ProjectOverview() {
           <div className="project-info">
             <div className="project-info-left">
               <h1 className="project-event-name">{project.name}</h1>
-              <p className="project-date">{project.date}</p>
+              <p className="project-date">{formatDate(project.date)}</p>
               <div className="project-details">
                 <div className="project-detail-item">
                   <span className="detail-label">Lead:</span>
@@ -294,6 +313,14 @@ function ProjectOverview() {
         isOpen={showTaskDetailModal}
         onClose={() => setShowTaskDetailModal(false)}
         task={selectedTask}
+      />
+
+      {/* Edit Project Modal */}
+      <EditProjectModal
+        isOpen={showEditProjectModal}
+        onClose={() => setShowEditProjectModal(false)}
+        project={project}
+        onUpdateProject={handleUpdateProject}
       />
     </div>
   );
