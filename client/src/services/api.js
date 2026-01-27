@@ -50,7 +50,7 @@ export const api = {
       body: JSON.stringify({ email, password, role }),
     });
 
-    // Store token in localStorage
+    // Store token and user info in localStorage
     if (data.token) {
       localStorage.setItem("authToken", data.token);
       localStorage.setItem("userEmail", data.user.email);
@@ -77,11 +77,18 @@ export const api = {
 
   getMyProjects: () => apiRequest("/projects"),
 
-  // ⚠️ UPDATE PROJECT - Missing from backend!
-  // You'll need to add this endpoint
+  getProjectById: (projectId) => apiRequest(`/projects/${projectId}`),
 
-  // ⚠️ DELETE PROJECT - Missing from backend!
-  // You'll need to add this endpoint
+  updateProject: (projectId, updates) =>
+    apiRequest(`/projects/${projectId}`, {
+      method: "PATCH",
+      body: JSON.stringify(updates),
+    }),
+
+  deleteProject: (projectId) =>
+    apiRequest(`/projects/${projectId}`, {
+      method: "DELETE",
+    }),
 
   // ============ TASKS ============
   createTask: (taskData) =>
@@ -90,19 +97,14 @@ export const api = {
       body: JSON.stringify(taskData),
     }),
 
-  // ⚠️ IMPORTANT: Your backend uses boardId, but you might need projectId
-  getTasksByBoard: (boardId) => apiRequest(`/tasks/board/${boardId}`),
+  getTasksByProject: (projectId) => apiRequest(`/tasks/project/${projectId}`),
+
+  getTaskById: (taskId) => apiRequest(`/tasks/${taskId}`),
 
   updateTask: (taskId, updates) =>
     apiRequest(`/tasks/${taskId}`, {
       method: "PATCH",
       body: JSON.stringify(updates),
-    }),
-
-  updateTaskStatus: (taskId, status) =>
-    apiRequest(`/tasks/${taskId}/status`, {
-      method: "PATCH",
-      body: JSON.stringify({ status }),
     }),
 
   deleteTask: (taskId) =>
@@ -117,7 +119,20 @@ export const api = {
       body: JSON.stringify(boardData),
     }),
 
-  getBoardsByUser: (userId) => apiRequest(`/boards/user/${userId}`),
+  getMyBoards: () => apiRequest("/boards"),
+
+  getBoardById: (boardId) => apiRequest(`/boards/${boardId}`),
+
+  updateBoard: (boardId, updates) =>
+    apiRequest(`/boards/${boardId}`, {
+      method: "PATCH",
+      body: JSON.stringify(updates),
+    }),
+
+  deleteBoard: (boardId) =>
+    apiRequest(`/boards/${boardId}`, {
+      method: "DELETE",
+    }),
 };
 
 export default api;
