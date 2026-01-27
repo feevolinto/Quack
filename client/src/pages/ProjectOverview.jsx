@@ -1,6 +1,7 @@
 // src/pages/ProjectOverview.jsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import api from "../services/api";
 import AddTaskModal from "../components/tasks/AddTaskModal";
 import EditTaskModal from "../components/tasks/EditTaskModal";
 import TaskDetailModal from "../components/tasks/TaskDetailModal";
@@ -25,42 +26,82 @@ function ProjectOverview() {
   const [draggedTask, setDraggedTask] = useState(null);
   const [draggedFromColumn, setDraggedFromColumn] = useState(null);
   
-  const [project, setProject] = useState({
-    name: "Event Name: Lorem ipsum",
-    date: "2026-01-10",
-    lead: "Feevol Into",
-    location: "123 Lorem ipsum dolor sit amet, Davao City, 8000",
-    description: "Lorem ipsum dolor sit amet orem ipsum dolor sit amet orem ipsum dolor sit amet",
-    committee: "Operations Committee"
-  });
-
+  const [project, setProject] = useState(null);
   const [tasks, setTasks] = useState({
-    todo: [
-      { id: 1, name: "Task name: Lorem ipsum", priority: "High", assignedTo: "Feevol Into", committee: "Operations", days: 10, date: "2026-02-02", link: "", description: "Task description here" },
-      { id: 2, name: "Task name: Lorem ipsum", priority: "Medium", assignedTo: "Feevol Into", committee: "Operations", days: 10, date: "2026-02-02", link: "", description: "" },
-      { id: 3, name: "Task name: Lorem ipsum", priority: "Low", assignedTo: "Feevol Into", committee: "Operations", days: 10, date: "2026-02-02", link: "", description: "" }
-    ],
-    inProgress: [
-      { id: 4, name: "Task name: Lorem ipsum", priority: "High", assignedTo: "Feevol Into", committee: "Operations", days: 10, date: "2026-02-02", link: "", description: "" },
-      { id: 5, name: "Task name: Lorem ipsum", priority: "Medium", assignedTo: "Feevol Into", committee: "Operations", days: 10, date: "2026-02-02", link: "", description: "" },
-      { id: 6, name: "Task name: Lorem ipsum", priority: "Low", assignedTo: "Feevol Into", committee: "Operations", days: 10, date: "2026-02-02", link: "", description: "" }
-    ],
-    finished: [
-      { id: 7, name: "Task name: Lorem ipsum", priority: "High", assignedTo: "Feevol Into", committee: "Operations", days: 10, date: "2026-02-02", link: "", description: "" },
-      { id: 8, name: "Task name: Lorem ipsum", priority: "Medium", assignedTo: "Feevol Into", committee: "Operations", days: 10, date: "2026-02-02", link: "", description: "" }
-    ]
+    todo: [],
+    inProgress: [],
+    finished: []
   });
+  const [loading, setLoading] = useState(true);
+
+  // Load project and tasks when component mounts
+  useEffect(() => {
+    if (projectId) {
+      loadProjectAndTasks();
+    }
+  }, [projectId]);
+
+  const loadProjectAndTasks = async () => {
+    try {
+      console.log("📡 Loading project:", projectId);
+      
+      // Load project details
+      const projectData = await api.getProjectById(projectId);
+      console.log("✅ Project loaded:", projectData);
+      setProject(projectData);
+
+      // Load tasks for this project
+      const tasksData = await api.getTasksByProject(projectId);
+      console.log("✅ Tasks loaded:", tasksData);
+      
+      // Organize tasks by status
+      const organized = {
+        todo: tasksData.filter(t => t.status === "todo"),
+        inProgress: tasksData.filter(t => t.status === "in-progress"),
+        finished: tasksData.filter(t => t.status === "finished")
+      };
+      
+      setTasks(organized);
+    } catch (err) {
+      console.error("❌ Failed to load data:", err);
+      alert("Failed to load project data");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleAddTask = (column) => {
     setSelectedColumn(column);
     setShowAddTaskModal(true);
   };
 
-  const handleCreateTask = (column, newTask) => {
-    setTasks(prevTasks => ({
-      ...prevTasks,
-      [column]: [...prevTasks[column], newTask]
-    }));
+  const handleCreateTask = async (column, newTask) => {
+    try {
+      console.log("📡 Creating task:", newTask);
+      
+      const taskData = {
+        name: newTask.taskName,
+        description: newTask.description,
+        status: column === "todo" ? "todo" : column === "inProgress" ? "in-progress" : "finished",
+        priority: newTask.priority,
+        committee: newTask.committee,
+        assignedTo: newTask.assignedTo,
+        dueDate: newTask.date,
+        link: newTask.link,
+        project: projectId
+      };
+      
+      const created = await api.createTask(taskData);
+      console.log("✅ Task created:", created);
+      
+      setTasks(prevTasks => ({
+        ...prevTasks,
+        [column]: [...prevTasks[column], created]
+      }));
+    } catch (err) {
+      console.error("❌ Failed to create task:", err);
+      alert(err.message);
+    }
   };
 
   const handleEditTask = (e, task, column) => {
@@ -70,13 +111,18 @@ function ProjectOverview() {
     setShowEditTaskModal(true);
   };
 
-  const handleUpdateTask = (updatedTask) => {
-    setTasks(prevTasks => ({
-      ...prevTasks,
-      [selectedColumn]: prevTasks[selectedColumn].map(task => 
-        task.id === updatedTask.id ? updatedTask : task
-      )
-    }));
+  const handleUpdateTask = async (updatedTask) => {
+    try {
+      console.log("📡 Updating task:", updatedTask);
+      await api.updateTask(updatedTask._id, updatedTask);
+      console.log("✅ Task updated");
+      
+      // Reload data to get fresh state
+      loadProjectAndTasks();
+    } catch (err) {
+      console.error("❌ Failed to update task:", err);
+      alert(err.message);
+    }
   };
 
   const handleTaskClick = (task) => {
@@ -88,8 +134,17 @@ function ProjectOverview() {
     setShowEditProjectModal(true);
   };
 
-  const handleUpdateProject = (updatedProject) => {
-    setProject(updatedProject);
+  const handleUpdateProject = async (updatedProject) => {
+    try {
+      console.log("📡 Updating project:", updatedProject);
+      await api.updateProject(projectId, updatedProject);
+      console.log("✅ Project updated");
+      
+      setProject(updatedProject);
+    } catch (err) {
+      console.error("❌ Failed to update project:", err);
+      alert(err.message);
+    }
   };
 
   const handleDeleteProject = () => {
@@ -114,26 +169,46 @@ function ProjectOverview() {
     e.dataTransfer.dropEffect = "move";
   };
 
-  const handleDrop = (e, targetColumn) => {
+  const handleDrop = async (e, targetColumn) => {
     e.preventDefault();
     
-    if (!draggedTask || draggedFromColumn === targetColumn) {
-      return;
+    if (!draggedTask || draggedFromColumn === targetColumn) return;
+
+    try {
+      console.log("📡 Moving task to:", targetColumn);
+      
+      const statusMap = {
+        todo: "todo",
+        inProgress: "in-progress",
+        finished: "finished"
+      };
+
+      await api.updateTask(draggedTask._id, {
+        status: statusMap[targetColumn]
+      });
+      
+      console.log("✅ Task moved successfully");
+
+      // Update local state
+      const updatedFromColumn = tasks[draggedFromColumn].filter(
+        task => task._id !== draggedTask._id
+      );
+
+      const updatedToColumn = [...tasks[targetColumn], {
+        ...draggedTask,
+        status: statusMap[targetColumn]
+      }];
+
+      setTasks({
+        ...tasks,
+        [draggedFromColumn]: updatedFromColumn,
+        [targetColumn]: updatedToColumn
+      });
+    } catch (err) {
+      console.error("❌ Failed to move task:", err);
+      alert("Failed to move task");
+      loadProjectAndTasks(); // Reload on error
     }
-
-    // Remove task from original column
-    const updatedFromColumn = tasks[draggedFromColumn].filter(
-      task => task.id !== draggedTask.id
-    );
-
-    // Add task to target column
-    const updatedToColumn = [...tasks[targetColumn], draggedTask];
-
-    setTasks({
-      ...tasks,
-      [draggedFromColumn]: updatedFromColumn,
-      [targetColumn]: updatedToColumn
-    });
 
     setDraggedTask(null);
     setDraggedFromColumn(null);
@@ -177,7 +252,7 @@ function ProjectOverview() {
         <div className="task-list">
           {tasks[columnKey].map((task) => (
             <div 
-              key={task.id} 
+              key={task._id || task.id} 
               className="task-card"
               draggable
               onDragStart={(e) => handleDragStart(e, task, columnKey)}
@@ -216,6 +291,14 @@ function ProjectOverview() {
       </div>
     );
   };
+
+  if (loading) {
+    return <div className="loading">Loading...</div>;
+  }
+
+  if (!project) {
+    return <div className="error">Project not found</div>;
+  }
 
   return (
     <div className="project-overview-page">
