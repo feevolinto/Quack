@@ -1,48 +1,29 @@
-// import app from "./app.js";
-// import mongoose from "mongoose";
-// import dotenv from "dotenv";
-// import boardRoutes from "./routes/board.routes.js";
-// import taskRoutes from "./routes/task.routes.js";
-// import authRoutes from "./routes/auth.routes.js";
-// import projectRoutes from "./routes/project.routes.js";
-
-// dotenv.config();
-
-// mongoose
-//   .connect(process.env.MONGO_URI)
-//   .then(() => {
-//     console.log("MongoDB connected");
-//   })
-//   .catch((err) => {
-//     console.error("MongoDB error:", err);
-//   });
-
-// // ROUTES FIRST
-// app.use("/api/boards", boardRoutes);
-// app.use("/api/tasks", taskRoutes);
-// app.use("/api/auth", authRoutes);
-// app.use("/api/projects", projectRoutes);
-
-// // THEN LISTEN
-// app.listen(5000, () => {
-//   console.log("Server running on port 5000");
-// });
-
 import app from "./app.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 dotenv.config();
 
+// MongoDB connection options to fix SSL issues
+const mongooseOptions = {
+  tls: true,
+  tlsAllowInvalidCertificates: true,
+  serverSelectionTimeoutMS: 5000,
+  socketTimeoutMS: 45000,
+};
+
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URI, mongooseOptions)
   .then(() => {
-    console.log("MongoDB connected");
+    console.log("✅ MongoDB connected successfully");
   })
   .catch((err) => {
-    console.error("MongoDB error:", err);
+    console.error("❌ MongoDB connection error:", err.message);
+    process.exit(1);
   });
 
-app.listen(3000, () => {
-  console.log("Server running on port 3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
 });
