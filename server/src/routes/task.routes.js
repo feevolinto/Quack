@@ -2,10 +2,11 @@ import express from "express";
 import authMiddleware from "../middleware/authMiddleware.js";
 import {
   createTask,
-  getTasksByBoard,
+  getTasksByProject,
+  getTaskById,
   updateTask,
   deleteTask
-} from "../../controllers/taskController.js";
+} from "../controllers/taskController.js";  // ✅ Correct path
 
 const router = express.Router();
 
@@ -19,28 +20,28 @@ router.post(
 );
 
 /**
- * GET tasks by board
+ * GET tasks by PROJECT (FIXED: was /board/:boardId)
  */
 router.get(
-  "/board/:boardId",
+  "/project/:projectId",
   authMiddleware,
-  getTasksByBoard
+  getTasksByProject
 );
 
 /**
- * UPDATE task (details)
+ * GET single task by ID
+ */
+router.get(
+  "/:id",
+  authMiddleware,
+  getTaskById
+);
+
+/**
+ * UPDATE task (details or status)
  */
 router.patch(
   "/:id",
-  authMiddleware,
-  updateTask
-);
-
-/**
- * UPDATE task STATUS (drag & drop)
- */
-router.patch(
-  "/:id/status",
   authMiddleware,
   updateTask
 );
