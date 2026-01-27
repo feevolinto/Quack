@@ -201,6 +201,7 @@
   line-height: normal;
   letter-spacing: -0.14px;
   text-align: center;
+  margin-right: -15px;
 }
 
 .table-cell.project-name-col {
