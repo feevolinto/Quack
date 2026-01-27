@@ -1,17 +1,15 @@
 // src/pages/Login.jsx
-import { useState, useContext } from "react";
-import { loginRequest } from "../api/auth.api";
-import { AuthContext } from "../context/AuthContext";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../services/api";
 import "../styles/Login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userType, setUserType] = useState("admin"); // 'admin' or 'user'
+  const [userType, setUserType] = useState("admin");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -19,25 +17,23 @@ function Login() {
     setError("");
     setLoading(true);
 
-    // TEMPORARY: Test login bypass (remove this later when backend is ready)
-    if (email === "test@test.com" && password === "test123") {
-      const mockUser = {
-        name: "Admin",
-        email: "test@test.com",
-        role: userType
-      };
-      login("test-token-123", mockUser);
-      navigate("/");
-      return;
-    }
-
     try {
-      const res = await loginRequest({ email, password, userType });
-      login(res.data.token, res.data.user);
-      navigate("/");
+      console.log("🔐 Attempting login...");
+      const response = await api.login(email, password, userType);
+      console.log("✅ Login successful:", response);
+      
+      // Check if token was stored
+      const storedToken = localStorage.getItem("authToken");
+      console.log("🔑 Token stored:", storedToken ? "Yes" : "No");
+      
+      // Navigate to dashboard
+      console.log("🚀 Navigating to dashboard...");
+      navigate("/dashboard", { replace: true });
+      console.log("✅ Navigation triggered");
+      
     } catch (err) {
-      console.error("Login error:", err);
-      setError(err.response?.data?.message || "Login failed. Please check your credentials.");
+      console.error("❌ Login error:", err);
+      setError(err.message || "Login failed. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -52,15 +48,15 @@ function Login() {
 
       {/* Left Side - Branding */}
       <div className="login-left">
-        <div className="login-branding">
-          <img src="/src/assets/logo_login.svg" alt="Quack" className="brand-name-img" />
-        </div>
+  <div className="login-brand-container">
+    <img src="/src/assets/logo_login.svg" alt="Quack" className="login-logo-image" />
+  </div>
 
-        <p className="brand-tagline">
-          Your <span className="highlight">Task Management</span><br />
-          Essential
-        </p>
-      </div>
+  <p className="brand-tagline">
+    Your <span className="highlight">Task Management</span><br />
+    Essential
+  </p>
+</div>
 
       {/* Right Side - Login Form */}
       <div className="login-right">
@@ -79,10 +75,10 @@ function Login() {
             </button>
             <button
               type="button"
-              className={`toggle-btn ${userType === "user" ? "active" : ""}`}
-              onClick={() => setUserType("user")}
+              className={`toggle-btn ${userType === "member" ? "active" : ""}`}
+              onClick={() => setUserType("member")}
             >
-              User
+              Member
             </button>
           </div>
 
