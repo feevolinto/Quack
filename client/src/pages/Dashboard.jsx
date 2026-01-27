@@ -1,114 +1,116 @@
 // src/pages/Dashboard.jsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CreateProjectModal from "../components/CreateProjectModal";
 import "../styles/Dashboard.css";
 import deleteIcon from "../assets/delete.svg";
-
+import api from "../services/api";
 
 function Dashboard() {
   const navigate = useNavigate();
-  
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
   const [showCreateModal, setShowCreateModal] = useState(false);
-  
-  const [projects, setProjects] = useState([
-    {
-      id: 1,
-      name: "Event Name: Lorem ipsum",
-      date: "01/31/2026",
-      location: "123 Lorem ipsum dolor,...",
-      leader: "Feevol Into",
-      status: "active"
-    },
-    {
-      id: 2,
-      name: "Event Name: Lorem ipsum",
-      date: "01/31/2026",
-      location: "123 Lorem ipsum dolor,...",
-      leader: "Feevol Into",
-      status: "active"
-    },
-    {
-      id: 3,
-      name: "Event Name: Lorem ipsum",
-      date: "01/31/2026",
-      location: "123 Lorem ipsum dolor,...",
-      leader: "Feevol Into",
-      status: "active"
-    },
-    {
-      id: 4,
-      name: "Event Name: Lorem ipsum",
-      date: "01/31/2026",
-      location: "123 Lorem ipsum dolor,...",
-      leader: "Feevol Into",
-      status: "inactive"
-    },
-    {
-      id: 5,
-      name: "Event Name: Lorem ipsum",
-      date: "01/31/2026",
-      location: "123 Lorem ipsum dolor,...",
-      leader: "Feevol Into",
-      status: "active"
-    },
-    {
-      id: 6,
-      name: "Event Name: Lorem ipsum",
-      date: "01/31/2026",
-      location: "123 Lorem ipsum dolor,...",
-      leader: "Feevol Into",
-      status: "active"
-    },
-    {
-      id: 7,
-      name: "Event Name: Lorem ipsum",
-      date: "01/31/2026",
-      location: "123 Lorem ipsum dolor,...",
-      leader: "Feevol Into",
-      status: "active"
-    },
-    {
-      id: 8,
-      name: "Event Name: Lorem ipsum",
-      date: "01/31/2026",
-      location: "123 Lorem ipsum dolor,...",
-      leader: "Feevol Into",
-      status: "inactive"
-    },
-    {
-      id: 9,
-      name: "Event Name: Lorem ipsum",
-      date: "01/31/2026",
-      location: "123 Lorem ipsum dolor,...",
-      leader: "Feevol Into",
-      status: "active"
+
+  // Load projects when component mounts
+  useEffect(() => {
+    loadProjects();
+  }, []);
+
+  const loadProjects = async () => {
+    try {
+      console.log("📡 Fetching projects...");
+      const data = await api.getMyProjects();
+      console.log("✅ Projects loaded:", data);
+      setProjects(data);
+    } catch (err) {
+      console.error("❌ Failed to load projects:", err);
+      setError(err.message);
+      
+      // If unauthorized, redirect to login
+      if (err.message.includes("token") || err.message.includes("401")) {
+        navigate("/login");
+      }
+    } finally {
+      setLoading(false);
     }
-  ]);
+  };
 
   const handleCreateProject = () => {
     setShowCreateModal(true);
   };
 
-  const handleAddProject = (newProject) => {
-    setProjects([...projects, newProject]);
-  };
-
-  const handleDeleteProject = (id) => {
-    setProjects(projects.filter(project => project.id !== id));
-  };
-
-  const toggleStatus = (id) => {
-    setProjects(projects.map(project => 
-      project.id === id 
-        ? { ...project, status: project.status === "active" ? "inactive" : "active" }
-        : project
-    ));
+  const handleAddProject = async (newProject) => {
+    try {
+      console.log("📡 Creating project...", newProject);
+      const created = await api.createProject(newProject);
+      console.log("✅ Project created:", created);
+      
+      setProjects([...projects, created]);
+      setShowCreateModal(false);
+    } catch (err) {
+      console.error("❌ Failed to create project:", err);
+      alert(err.message);
+    }
   };
 
   const handleProjectClick = (projectId) => {
     navigate(`/dashboard/project/${projectId}`);
   };
+
+  const toggleStatus = async (projectId) => {
+    try {
+      const project = projects.find(p => p._id === projectId);
+      const newStatus = project.status === "active" ? "inactive" : "active";
+      
+      console.log("📡 Updating project status...", projectId, newStatus);
+      await api.updateProject(projectId, { status: newStatus });
+      console.log("✅ Status updated");
+      
+      setProjects(projects.map(p => 
+        p._id === projectId ? { ...p, status: newStatus } : p
+      ));
+    } catch (err) {
+      console.error("❌ Failed to update status:", err);
+      alert(err.message);
+    }
+  };
+
+  const handleDeleteProject = async (projectId) => {
+    if (!window.confirm("Are you sure you want to delete this project?")) {
+      return;
+    }
+
+    try {
+      console.log("🗑️ Deleting project:", projectId);
+      await api.deleteProject(projectId);
+      console.log("✅ Project deleted");
+      
+      setProjects(projects.filter(p => p._id !== projectId));
+    } catch (err) {
+      console.error("❌ Failed to delete project:", err);
+      alert(err.message);
+    }
+  };
+
+  const formatDate = (dateString) => {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'short', 
+      day: 'numeric' 
+    });
+  };
+
+  if (loading) {
+    return <div className="loading">Loading projects...</div>;
+  }
+
+  if (error) {
+    return <div className="error">Error: {error}</div>;
+  }
 
   return (
     <div className="dashboard-page">
@@ -142,39 +144,45 @@ function Dashboard() {
 
           {/* Scrollable Table Body */}
           <div className="table-body">
-            {projects.map((project, index) => (
-              <div key={project.id}>
-                <div className="table-row" onClick={() => handleProjectClick(project.id)}>
-                  <div className="table-cell project-name-col">{project.name}</div>
-                  <div className="table-cell date-col">{project.date}</div>
-                  <div className="table-cell location-col">{project.location}</div>
-                  <div className="table-cell leader-col">{project.leader}</div>
-                  <div className="table-cell status-col">
-                    <button 
-                      className={`status-badge ${project.status}`}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        toggleStatus(project.id);
-                      }}
-                    >
-                      {project.status === "active" ? "Active" : "Inactive"}
-                    </button>
-                  </div>
-                  <div className="table-cell action-col">
-                    <button 
-                      className="delete-btn"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleDeleteProject(project.id);
-                      }}
-                    >
-                      <img src={deleteIcon} alt="delete" className="nav-icon" />
-                    </button>
-                  </div>
-                </div>
-                {index < projects.length - 1 && <div className="table-divider"></div>}
+            {projects.length === 0 ? (
+              <div className="empty-state">
+                <p>No projects yet. Create your first project to get started!</p>
               </div>
-            ))}
+            ) : (
+              projects.map((project, index) => (
+                <div key={project._id || project.id}>
+                  <div className="table-row" onClick={() => handleProjectClick(project._id || project.id)}>
+                    <div className="table-cell project-name-col">{project.name}</div>
+                    <div className="table-cell date-col">{formatDate(project.date)}</div>
+                    <div className="table-cell location-col">{project.location}</div>
+                    <div className="table-cell leader-col">{project.lead || project.leader}</div>
+                    <div className="table-cell status-col">
+                      <button 
+                        className={`status-badge ${project.status || 'active'}`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleStatus(project._id || project.id);
+                        }}
+                      >
+                        {project.status === "active" ? "Active" : "Inactive"}
+                      </button>
+                    </div>
+                    <div className="table-cell action-col">
+                      <button 
+                        className="delete-btn"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleDeleteProject(project._id || project.id);
+                        }}
+                      >
+                        <img src={deleteIcon} alt="delete" className="nav-icon" />
+                      </button>
+                    </div>
+                  </div>
+                  {index < projects.length - 1 && <div className="table-divider"></div>}
+                </div>
+              ))
+            )}
           </div>
         </div>
       </div>
