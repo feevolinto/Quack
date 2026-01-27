@@ -1,8 +1,8 @@
-// src/components/common/CreateProjectModal.jsx
 import { useState } from "react";
+import api from "../services/api";
 import "../styles/CreateProjectModal.css";
 
-function CreateProjectModal({ isOpen, onClose, onCreateProject }) {
+function CreateProjectModal({ isOpen, onClose, onProjectCreated }) {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -12,6 +12,8 @@ function CreateProjectModal({ isOpen, onClose, onCreateProject }) {
     committee: "",
     description: ""
   });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   if (!isOpen) return null;
 
@@ -28,20 +30,24 @@ function CreateProjectModal({ isOpen, onClose, onCreateProject }) {
     setShowConfirmation(true);
   };
 
-  const handleConfirmCreate = () => {
-    const newProject = {
-      id: Date.now(),
-      name: formData.name,
-      date: formData.date,
-      location: formData.location,
-      leader: formData.leader,
-      committee: formData.committee,
-      description: formData.description,
-      status: "active"
-    };
-    
-    onCreateProject(newProject);
-    handleClose();
+  const handleConfirmCreate = async () => {
+    setLoading(true);
+    setError("");
+
+    try {
+      console.log("📡 Creating project:", formData);
+      const newProject = await api.createProject(formData);
+      console.log("✅ Project created:", newProject);
+      
+      onProjectCreated(newProject);
+      handleClose();
+    } catch (err) {
+      console.error("❌ Failed to create project:", err);
+      setError(err.message);
+      setShowConfirmation(false);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleClose = () => {
@@ -54,6 +60,7 @@ function CreateProjectModal({ isOpen, onClose, onCreateProject }) {
       description: ""
     });
     setShowConfirmation(false);
+    setError("");
     onClose();
   };
 
@@ -62,6 +69,8 @@ function CreateProjectModal({ isOpen, onClose, onCreateProject }) {
   };
 
   const isFormValid = formData.name.trim() !== "";
+
+  // ... rest of your modal code (confirmation and form JSX
 
   if (showConfirmation) {
     return (
