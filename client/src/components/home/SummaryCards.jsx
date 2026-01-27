@@ -1,21 +1,39 @@
 // src/components/home/SummaryCards.jsx
+import "../../styles/Home.css";
+
 function SummaryCards({ stats }) {
-  const cards = [
-    { label: "Total Deliverables", value: stats.totalDeliverables, key: "total" },
-    { label: "To do", value: stats.todo, key: "todo" },
-    { label: "In progress", value: stats.inProgress, key: "progress" },
-    { label: "Finished", value: stats.finished, key: "finished" }
-  ];
+  // Debug logging
+  console.log("📊 SummaryCards received stats:", stats);
 
   return (
     <div className="summary-container">
-      {cards.map((card) => (
-        <div key={card.key} className="summary-card">
-          <p className="summary-label">{card.label}</p>
-          <h2 className="summary-value">{card.value}</h2>
-          <p className="summary-subtitle">across all projects</p>
-        </div>
-      ))}
+      {/* All Deliverables */}
+      <div className="summary-card">
+        <p className="summary-label">All Deliverables</p>
+        <p className="summary-value">{stats?.allDeliverables || 0}</p>
+        <p className="summary-subtitle">Tasks</p>
+      </div>
+
+      {/* To Do */}
+      <div className="summary-card">
+        <p className="summary-label">To do</p>
+        <p className="summary-value">{stats?.toDo || 0}</p>
+        <p className="summary-subtitle">Tasks</p>
+      </div>
+
+      {/* In Progress */}
+      <div className="summary-card">
+        <p className="summary-label">In progress</p>
+        <p className="summary-value">{stats?.inProgress || 0}</p>
+        <p className="summary-subtitle">Tasks</p>
+      </div>
+
+      {/* Finished */}
+      <div className="summary-card">
+        <p className="summary-label">Finished</p>
+        <p className="summary-value">{stats?.finished || 0}</p>
+        <p className="summary-subtitle">Tasks</p>
+      </div>
     </div>
   );
 }
