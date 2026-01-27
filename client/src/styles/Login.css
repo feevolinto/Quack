@@ -23,11 +23,10 @@
   object-fit: cover;
 }
 
-/* Left Side - Branding */
 .login-left {
   position: relative;
   z-index: 1;
-  width: 50%; /* Takes exactly half the screen */
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,17 +35,16 @@
   gap: 2rem;
 }
 
-.login-branding {
+.login-brand-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
 }
 
-/* Logo Icon Placeholder */
-.logo-placeholder {
-  width: 225px;
-  height: 200px;
+.login-logo-image {
+  width: 250px; /* Adjust to your desired size */
+  height: auto; /* Maintains aspect ratio */
+  margin-bottom: -20px; /* Gap between logo and tagline */
 }
 
 /* Tagline */
