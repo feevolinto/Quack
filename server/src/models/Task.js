@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const taskSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true  // ✅ Required field
   },
 
   title: String,
@@ -49,6 +49,7 @@ const taskSchema = new mongoose.Schema({
   assignedTo: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User"
+    // ✅ NOT required - can be null/undefined
   }
 
 }, { timestamps: true });
