@@ -1,106 +1,151 @@
 // src/pages/History.jsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../services/api";
+import RoleProtected from "../components/common/RoleProtected";
+import { useRole } from "../hooks/useRole";
 import "../styles/History.css";
 import restoreIcon from "../assets/restore.svg";
 
 function History() {
   const navigate = useNavigate();
+  const { isAdmin } = useRole();
   
-  const [archivedProjects, setArchivedProjects] = useState([
-    {
-      id: 1,
-      name: "Event Name: Lorem ipsum",
-      date: "01/15/2026",
-      location: "123 Lorem ipsum dolor,...",
-      leader: "Feevol Into",
-      status: "finished",
-      archivedDate: "01/20/2026"
-    },
-    {
-      id: 2,
-      name: "Event Name: Lorem ipsum",
-      date: "12/20/2025",
-      location: "123 Lorem ipsum dolor,...",
-      leader: "Feevol Into",
-      status: "trashed",
-      archivedDate: "01/18/2026"
-    },
-    {
-      id: 3,
-      name: "Event Name: Lorem ipsum",
-      date: "01/10/2026",
-      location: "123 Lorem ipsum dolor,...",
-      leader: "Feevol Into",
-      status: "finished",
-      archivedDate: "01/19/2026"
-    },
-    {
-      id: 4,
-      name: "Event Name: Lorem ipsum",
-      date: "12/28/2025",
-      location: "123 Lorem ipsum dolor,...",
-      leader: "Feevol Into",
-      status: "trashed",
-      archivedDate: "01/17/2026"
-    },
-    {
-      id: 5,
-      name: "Event Name: Lorem ipsum",
-      date: "01/05/2026",
-      location: "123 Lorem ipsum dolor,...",
-      leader: "Feevol Into",
-      status: "finished",
-      archivedDate: "01/16/2026"
-    },
-    {
-      id: 6,
-      name: "Event Name: Lorem ipsum",
-      date: "12/15/2025",
-      location: "123 Lorem ipsum dolor,...",
-      leader: "Feevol Into",
-      status: "trashed",
-      archivedDate: "01/15/2026"
-    },
-    {
-      id: 7,
-      name: "Event Name: Lorem ipsum",
-      date: "01/08/2026",
-      location: "123 Lorem ipsum dolor,...",
-      leader: "Feevol Into",
-      status: "finished",
-      archivedDate: "01/14/2026"
-    },
-    {
-      id: 8,
-      name: "Event Name: Lorem ipsum",
-      date: "12/30/2025",
-      location: "123 Lorem ipsum dolor,...",
-      leader: "Feevol Into",
-      status: "trashed",
-      archivedDate: "01/13/2026"
-    },
-    {
-      id: 9,
-      name: "Event Name: Lorem ipsum",
-      date: "01/12/2026",
-      location: "123 Lorem ipsum dolor,...",
-      leader: "Feevol Into",
-      status: "finished",
-      archivedDate: "01/12/2026"
-    }
-  ]);
+  const [archivedProjects, setArchivedProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const handleRestoreProject = (id) => {
-    // Remove from archived projects (restore to active projects)
-    console.log(`Restoring project ${id}`);
-    setArchivedProjects(archivedProjects.filter(project => project.id !== id));
-    // In real implementation, you would add it back to active projects
+  useEffect(() => {
+    loadArchivedProjects();
+  }, []);
+
+  const loadArchivedProjects = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      console.log("📡 Loading archived projects...");
+
+      const data = await api.getArchivedProjects();
+      console.log("✅ Archived projects loaded:", data);
+
+      // Format the data for display
+      const formattedProjects = data.map(project => ({
+        id: project._id,
+        _id: project._id,
+        name: project.name,
+        date: formatDate(project.date),
+        location: project.location || "N/A",
+        leader: project.leader || project.lead || "N/A",
+        status: project.status,
+        archivedDate: formatDate(project.archivedAt),
+        rawDate: project.date,
+        rawArchivedDate: project.archivedAt
+      }));
+
+      setArchivedProjects(formattedProjects);
+    } catch (err) {
+      console.error("❌ Failed to load archived projects:", err);
+      setError(err.message);
+
+      if (err.message.includes("token") || err.message.includes("401")) {
+        navigate("/login");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const formatDate = (dateString) => {
+    if (!dateString) return "N/A";
+    const date = new Date(dateString);
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${month}/${day}/${year}`;
+  };
+
+  const handleRestoreProject = async (projectId) => {
+    if (!isAdmin) {
+      alert("Only administrators can restore projects");
+      return;
+    }
+
+    if (!window.confirm("Are you sure you want to restore this project?")) {
+      return;
+    }
+
+    try {
+      console.log("🔄 Restoring project:", projectId);
+      
+      const restored = await api.restoreProject(projectId);
+      console.log("✅ Project restored:", restored);
+
+      setArchivedProjects(archivedProjects.filter(project => project._id !== projectId));
+
+      alert("Project restored successfully!");
+    } catch (err) {
+      console.error("❌ Failed to restore project:", err);
+      alert(`Failed to restore project: ${err.message}`);
+    }
   };
 
   const handleProjectClick = (projectId) => {
+    console.log("📍 Viewing archived project:", projectId);
     navigate(`/dashboard/project/${projectId}`);
   };
+
+  if (loading) {
+    return (
+      <div className="history-page">
+        <div className="history-container">
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100%',
+            color: 'white',
+            fontSize: '18px'
+          }}>
+            Loading archived projects...
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="history-page">
+        <div className="history-container">
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100%',
+            color: 'white',
+            fontSize: '16px',
+            gap: '20px'
+          }}>
+            <p style={{ color: '#e74c3c' }}>Error: {error}</p>
+            <button
+              onClick={loadArchivedProjects}
+              style={{
+                padding: '10px 20px',
+                background: '#834dfb',
+                color: 'white',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer'
+              }}
+            >
+              Retry
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="history-page">
@@ -131,28 +176,32 @@ function History() {
           <div className="history-table-body">
             {archivedProjects.length > 0 ? (
               archivedProjects.map((project, index) => (
-                <div key={project.id}>
-                  <div className="history-table-row" onClick={() => handleProjectClick(project.id)}>
+                <div key={project._id}>
+                  <div className="history-table-row" onClick={() => handleProjectClick(project._id)}>
                     <div className="history-cell project-name-col">{project.name}</div>
                     <div className="history-cell date-col">{project.date}</div>
                     <div className="history-cell location-col">{project.location}</div>
                     <div className="history-cell leader-col">{project.leader}</div>
                     <div className="history-cell status-col">
                       <span className={`history-status-badge ${project.status}`}>
-                        {project.status === "finished" ? "Finished" : "Trashed"}
+                        {project.status === "finished" ? "Finished" : 
+                         project.status === "trashed" ? "Trashed" : "Archived"}
                       </span>
                     </div>
                     <div className="history-cell archived-col">{project.archivedDate}</div>
                     <div className="history-cell restore-col">
-                      <button 
-                        className="restore-btn"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleRestoreProject(project.id);
-                        }}
-                      >
-                        <img src={restoreIcon} alt="restore" className="restore-icon" />
-                      </button>
+                      {/* Admin-only restore button */}
+                      <RoleProtected allowedRoles={['admin']}>
+                        <button 
+                          className="restore-btn"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleRestoreProject(project._id);
+                          }}
+                        >
+                          <img src={restoreIcon} alt="restore" className="restore-icon" />
+                        </button>
+                      </RoleProtected>
                     </div>
                   </div>
                   {index < archivedProjects.length - 1 && <div className="history-table-divider"></div>}
