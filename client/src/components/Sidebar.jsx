@@ -18,49 +18,83 @@ function Sidebar() {
     navigate("/login");
   };
 
-const navItems = [
-  { path: "/", label: "Home", icon: homeIcon },
-  { path: "/dashboard", label: "Dashboard", icon: dashboardIcon },
-  { path: "/history", label: "History", icon: historyIcon },
-];
+  // Get user info with fallbacks
+  const userEmail = user?.email || localStorage.getItem("userEmail") || "user@example.com";
+  const userRole = user?.role || localStorage.getItem("userRole") || "member";
+  
+  // Extract name from email (before @)
+  const getUserName = () => {
+    if (user?.name) return user.name;
+    
+    // Get name from email
+    const emailName = userEmail.split("@")[0];
+    
+    // Capitalize first letter of each word
+    return emailName
+      .split(/[._-]/)
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  };
 
+  // Get first letter for avatar
+  const getAvatarLetter = () => {
+    const name = getUserName();
+    return name.charAt(0).toUpperCase();
+  };
+
+  // Format role for display
+  const getDisplayRole = () => {
+    if (userRole === "admin") return "Admin";
+    if (userRole === "member") return "Member";
+    return userRole.charAt(0).toUpperCase() + userRole.slice(1);
+  };
+
+  const navItems = [
+    { path: "/", label: "Home", icon: homeIcon },
+    { path: "/dashboard", label: "Dashboard", icon: dashboardIcon },
+    { path: "/history", label: "History", icon: historyIcon },
+  ];
+
+  console.log("👤 Sidebar user info:", { userEmail, userRole, name: getUserName() });
 
   return (
     <aside className="sidebar">
       
       <div className="sidebar-logo">
-  <img src={logo} alt="Quack" className="brand-name-img" />
-</div>
-
+        <img src={logo} alt="Quack" className="brand-name-img" />
+      </div>
 
       {/* User Profile */}
       <div className="user-profile">
-        <div className="user-avatar">
-          {user?.name?.charAt(0).toUpperCase() || "A"}
+        <div className="user-avatar" style={{
+          background: userRole === "admin" 
+            ? "linear-gradient(135deg, #834dfb 0%, #9d6bff 100%)" 
+            : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        }}>
+          {getAvatarLetter()}
         </div>
         <div className="user-info">
-          <p className="user-name">{user?.name || "Admin"}</p>
-          <span className="user-role">Role</span>
+          <p className="user-name">{getUserName()}</p>
+          <span className="user-role">{getDisplayRole()}</span>
         </div>
       </div>
 
       {/* Navigation */}
       <nav className="sidebar-nav">
-  {navItems.map((item) => (
-    <NavLink
-      key={item.path}
-      to={item.path}
-      className={({ isActive }) =>
-        `nav-item ${isActive ? "active" : ""}`
-      }
-      end={item.path === "/"}
-    >
-      <img src={item.icon} alt={item.label} className="nav-icon" />
-      <span className="nav-label">{item.label}</span>
-    </NavLink>
-  ))}
-</nav>
-
+        {navItems.map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            className={({ isActive }) =>
+              `nav-item ${isActive ? "active" : ""}`
+            }
+            end={item.path === "/"}
+          >
+            <img src={item.icon} alt={item.label} className="nav-icon" />
+            <span className="nav-label">{item.label}</span>
+          </NavLink>
+        ))}
+      </nav>
 
       {/* Logout Button */}
       <button className="logout-btn" onClick={handleLogout}>
