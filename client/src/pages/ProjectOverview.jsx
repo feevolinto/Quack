@@ -6,6 +6,8 @@ import AddTaskModal from "../components/tasks/AddTaskModal";
 import EditTaskModal from "../components/tasks/EditTaskModal";
 import TaskDetailModal from "../components/tasks/TaskDetailModal";
 import EditProjectModal from "../components/tasks/EditProjectModal";
+import RoleProtected from "../components/common/RoleProtected";
+import { useRole } from "../hooks/useRole";
 import "../styles/ProjectOverview.css";
 import editIcon from "../assets/edit.svg";
 import deleteIcon from "../assets/delete.svg";
@@ -15,6 +17,7 @@ import rightIcon from "../assets/right.svg";
 function ProjectOverview() {
   const navigate = useNavigate();
   const { projectId } = useParams();
+  const { isAdmin, canEdit, canDelete } = useRole();
   
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
@@ -75,32 +78,58 @@ function ProjectOverview() {
     setShowAddTaskModal(true);
   };
 
-  const handleCreateTask = async (column, newTask) => {
+  const handleCreateTask = async (column, taskData) => {
     try {
-      console.log("📡 Creating task:", newTask);
+      console.log("📡 Creating task:", taskData);
       
-      const taskData = {
-        name: newTask.taskName,
-        description: newTask.description,
-        status: column === "todo" ? "todo" : column === "inProgress" ? "in-progress" : "finished",
-        priority: newTask.priority,
-        committee: newTask.committee,
-        assignedTo: newTask.assignedTo,
-        dueDate: newTask.date,
-        link: newTask.link,
+      // Map column to status
+      const statusMap = {
+        todo: "todo",
+        inProgress: "in-progress",
+        finished: "finished"
+      };
+      
+      // Prepare the data for API
+      const apiTaskData = {
+        name: taskData.name,
+        description: taskData.description || "",
+        status: statusMap[column] || "todo",
+        priority: taskData.priority || "Medium",
+        committee: taskData.committee || "",
+        link: taskData.link || "",
+        dueDate: taskData.dueDate,
         project: projectId
       };
       
-      const created = await api.createTask(taskData);
+      console.log("📤 Sending to API:", apiTaskData);
+      
+      const created = await api.createTask(apiTaskData);
       console.log("✅ Task created:", created);
+      
+      // Calculate days left for display
+      let days = 0;
+      if (created.dueDate) {
+        const dueDate = new Date(created.dueDate);
+        const today = new Date();
+        const diffTime = dueDate - today;
+        days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        days = days > 0 ? days : 0;
+      }
+      
+      // Add to local state with display-friendly format
+      const displayTask = {
+        ...created,
+        days: days,
+        assignedTo: taskData.assignedTo || "Unassigned"
+      };
       
       setTasks(prevTasks => ({
         ...prevTasks,
-        [column]: [...prevTasks[column], created]
+        [column]: [...prevTasks[column], displayTask]
       }));
     } catch (err) {
       console.error("❌ Failed to create task:", err);
-      alert(err.message);
+      alert(`Failed to create task: ${err.message}`);
     }
   };
 
@@ -131,6 +160,10 @@ function ProjectOverview() {
   };
 
   const handleEditProject = () => {
+    if (!canEdit) {
+      alert("Only administrators can edit projects");
+      return;
+    }
     setShowEditProjectModal(true);
   };
 
@@ -148,13 +181,24 @@ function ProjectOverview() {
   };
 
   const handleDeleteProject = () => {
+    if (!canDelete) {
+      alert("Only administrators can delete projects");
+      return;
+    }
     setShowDeleteModal(true);
   };
 
-  const confirmDelete = () => {
-    console.log("Project deleted");
-    setShowDeleteModal(false);
-    navigate("/dashboard");
+  const confirmDelete = async () => {
+    try {
+      console.log("🗑️ Deleting project:", projectId);
+      await api.deleteProject(projectId);
+      console.log("✅ Project deleted");
+      setShowDeleteModal(false);
+      navigate("/dashboard");
+    } catch (err) {
+      console.error("❌ Failed to delete project:", err);
+      alert(err.message);
+    }
   };
 
   // Drag and Drop handlers
@@ -244,6 +288,7 @@ function ProjectOverview() {
               <span>{tasks[columnKey].length}</span>
             </div>
           </div>
+          {/* All users can add tasks */}
           <button className="add-task-btn" onClick={() => handleAddTask(columnKey)}>
             <img src={addIcon} alt="add" className="nav-icon" />
           </button>
@@ -261,6 +306,7 @@ function ProjectOverview() {
             >
               <div className="task-card-header">
                 <span className="task-priority">{task.priority}</span>
+                {/* All users can edit tasks */}
                 <button 
                   className="task-edit-btn" 
                   onClick={(e) => handleEditTask(e, task, columnKey)}
@@ -341,13 +387,16 @@ function ProjectOverview() {
             </div>
           </div>
 
+          {/* Admin-only project actions */}
           <div className="project-actions">
-            <button className="action-btn edit-btn" onClick={handleEditProject}>
-              <img src={editIcon} alt="edit" className="nav-icon" />
-            </button>
-            <button className="action-btn delete-btn-icon" onClick={handleDeleteProject}>
-              <img src={deleteIcon} alt="delete" className="nav-icon" />
-            </button>
+            <RoleProtected allowedRoles={['admin']}>
+              <button className="action-btn edit-btn" onClick={handleEditProject}>
+                <img src={editIcon} alt="edit" className="nav-icon" />
+              </button>
+              <button className="action-btn delete-btn-icon" onClick={handleDeleteProject}>
+                <img src={deleteIcon} alt="delete" className="nav-icon" />
+              </button>
+            </RoleProtected>
           </div>
         </div>
 
@@ -362,7 +411,7 @@ function ProjectOverview() {
         </div>
       </div>
 
-      {/* Delete Confirmation Modal */}
+      {/* Delete Confirmation Modal - Admin Only */}
       {showDeleteModal && (
         <div className="modal-overlay">
           <div className="modal-content">
@@ -375,7 +424,7 @@ function ProjectOverview() {
         </div>
       )}
 
-      {/* Add Task Modal */}
+      {/* Add Task Modal - All Users */}
       <AddTaskModal
         isOpen={showAddTaskModal}
         onClose={() => setShowAddTaskModal(false)}
@@ -383,7 +432,7 @@ function ProjectOverview() {
         onAddTask={handleCreateTask}
       />
 
-      {/* Edit Task Modal */}
+      {/* Edit Task Modal - All Users */}
       <EditTaskModal
         isOpen={showEditTaskModal}
         onClose={() => setShowEditTaskModal(false)}
@@ -391,20 +440,22 @@ function ProjectOverview() {
         onUpdateTask={handleUpdateTask}
       />
 
-      {/* Task Detail Modal */}
+      {/* Task Detail Modal - All Users */}
       <TaskDetailModal
         isOpen={showTaskDetailModal}
         onClose={() => setShowTaskDetailModal(false)}
         task={selectedTask}
       />
 
-      {/* Edit Project Modal */}
-      <EditProjectModal
-        isOpen={showEditProjectModal}
-        onClose={() => setShowEditProjectModal(false)}
-        project={project}
-        onUpdateProject={handleUpdateProject}
-      />
+      {/* Edit Project Modal - Admin Only */}
+      {isAdmin && (
+        <EditProjectModal
+          isOpen={showEditProjectModal}
+          onClose={() => setShowEditProjectModal(false)}
+          project={project}
+          onUpdateProject={handleUpdateProject}
+        />
+      )}
     </div>
   );
 }
