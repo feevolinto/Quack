@@ -28,8 +28,13 @@ const projectSchema = new mongoose.Schema({
 
   status: {
     type: String,
-    enum: ["active", "inactive"],
+    enum: ["active", "inactive", "finished", "archived", "trashed"],
     default: "active"
+  },
+
+  // New field to track when project was archived
+  archivedAt: {
+    type: Date
   },
 
   owner: {
