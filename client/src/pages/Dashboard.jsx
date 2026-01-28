@@ -2,12 +2,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CreateProjectModal from "../components/CreateProjectModal";
+import RoleProtected from "../components/common/RoleProtected";
+import { useRole } from "../hooks/useRole";
 import "../styles/Dashboard.css";
 import deleteIcon from "../assets/delete.svg";
 import api from "../services/api";
 
 function Dashboard() {
   const navigate = useNavigate();
+  const { isAdmin, canCreate, canDelete } = useRole();
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -124,11 +127,13 @@ function Dashboard() {
           <h1 className="dashboard-title">Project Dashboard</h1>
         </div>
 
-        {/* Create Button */}
-        <button className="create-project-btn" onClick={handleCreateProject}>
-          <span className="create-icon">+</span>
-          <span className="create-text">Create New Project</span>
-        </button>
+        {/* Create Button - Admin Only */}
+        <RoleProtected allowedRoles={['admin']}>
+          <button className="create-project-btn" onClick={handleCreateProject}>
+            <span className="create-icon">+</span>
+            <span className="create-text">Create New Project</span>
+          </button>
+        </RoleProtected>
 
         {/* Projects Table Section */}
         <div className="projects-table-section">
@@ -157,26 +162,37 @@ function Dashboard() {
                     <div className="table-cell location-col">{project.location}</div>
                     <div className="table-cell leader-col">{project.lead || project.leader}</div>
                     <div className="table-cell status-col">
-                      <button 
-                        className={`status-badge ${project.status || 'active'}`}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          toggleStatus(project._id || project.id);
-                        }}
+                      <RoleProtected 
+                        allowedRoles={['admin']}
+                        fallback={
+                          <span className={`status-badge ${project.status || 'active'} readonly`}>
+                            {project.status === "active" ? "Active" : "Inactive"}
+                          </span>
+                        }
                       >
-                        {project.status === "active" ? "Active" : "Inactive"}
-                      </button>
+                        <button 
+                          className={`status-badge ${project.status || 'active'}`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            toggleStatus(project._id || project.id);
+                          }}
+                        >
+                          {project.status === "active" ? "Active" : "Inactive"}
+                        </button>
+                      </RoleProtected>
                     </div>
                     <div className="table-cell action-col">
-                      <button 
-                        className="delete-btn"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleDeleteProject(project._id || project.id);
-                        }}
-                      >
-                        <img src={deleteIcon} alt="delete" className="nav-icon" />
-                      </button>
+                      <RoleProtected allowedRoles={['admin']}>
+                        <button 
+                          className="delete-btn"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleDeleteProject(project._id || project.id);
+                          }}
+                        >
+                          <img src={deleteIcon} alt="delete" className="nav-icon" />
+                        </button>
+                      </RoleProtected>
                     </div>
                   </div>
                   {index < projects.length - 1 && <div className="table-divider"></div>}
