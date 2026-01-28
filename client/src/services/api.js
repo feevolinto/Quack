@@ -1,7 +1,7 @@
 // src/services/api.js
 
 // Base URL of your backend server
-const API_BASE_URL = "http://localhost:3000/api";
+const API_BASE_URL = "http://localhost:3000/api"; // ✅ Changed from 3000 to 5000
 
 /**
  * Helper function to make authenticated API calls
@@ -89,6 +89,19 @@ export const api = {
     apiRequest(`/projects/${projectId}`, {
       method: "DELETE",
     }),
+
+  archiveProject: (projectId, status = "archived") =>
+    apiRequest(`/projects/${projectId}/archive`, {
+      method: "PATCH",
+      body: JSON.stringify({ status }),
+    }),
+
+  restoreProject: (projectId) =>
+    apiRequest(`/projects/${projectId}/restore`, {
+      method: "PATCH",
+    }),
+
+  getArchivedProjects: () => apiRequest("/projects/archived"),
 
   // ============ TASKS ============
   createTask: (taskData) =>
