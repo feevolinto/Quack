@@ -1,5 +1,6 @@
 // src/pages/Login.jsx
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import "../styles/Login.css";
@@ -7,9 +8,10 @@ import "../styles/Login.css";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userType, setUserType] = useState("admin");
+  const [userType, setUserType] = useState("admin"); // 'admin' or 'member'
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const { login } = useContext(AuthContext); // ✅ Get login from context
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -18,22 +20,21 @@ function Login() {
     setLoading(true);
 
     try {
-      console.log("🔐 Attempting login...");
+      console.log("🔐 Attempting login...", { email, userType });
+      
+      // Call backend API
       const response = await api.login(email, password, userType);
+      
       console.log("✅ Login successful:", response);
       
-      // Check if token was stored
-      const storedToken = localStorage.getItem("authToken");
-      console.log("🔑 Token stored:", storedToken ? "Yes" : "No");
+      // Save to context
+      login(response.token, response.user);
       
-      // Navigate to dashboard
-      console.log("🚀 Navigating to dashboard...");
-      navigate("/dashboard", { replace: true });
-      console.log("✅ Navigation triggered");
-      
+      // Redirect to home/dashboard
+      navigate("/");
     } catch (err) {
       console.error("❌ Login error:", err);
-      setError(err.message || "Login failed. Please try again.");
+      setError(err.message || "Login failed. Please check your credentials.");
     } finally {
       setLoading(false);
     }
@@ -48,15 +49,15 @@ function Login() {
 
       {/* Left Side - Branding */}
       <div className="login-left">
-  <div className="login-brand-container">
-    <img src="/src/assets/logo_login.svg" alt="Quack" className="login-logo-image" />
-  </div>
+        <div className="login-brand-container">
+          <img src="/src/assets/logo_login.svg" alt="Quack" className="login-logo-image" />
+        </div>
 
-  <p className="brand-tagline">
-    Your <span className="highlight">Task Management</span><br />
-    Essential
-  </p>
-</div>
+        <p className="brand-tagline">
+          Your <span className="highlight">Task Management</span><br />
+          Essential
+        </p>
+      </div>
 
       {/* Right Side - Login Form */}
       <div className="login-right">
