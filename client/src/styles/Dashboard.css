@@ -736,3 +736,16 @@
     font-size: 14px;
   }
 }
+
+/* Add this to your Dashboard.css for readonly status badges */
+
+.status-badge.readonly {
+  cursor: default;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.status-badge.readonly:hover {
+  transform: none;
+  background: inherit;
+}
