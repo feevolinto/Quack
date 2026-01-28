@@ -1,4 +1,4 @@
-// src/components/AddTaskModal.jsx
+// src/components/tasks/AddTaskModal.jsx
 import { useState } from "react";
 import "../../styles/AddTaskModal.css";
 
@@ -56,18 +56,29 @@ function AddTaskModal({ isOpen, onClose, columnType, onAddTask }) {
   };
 
   const handleConfirmCreate = () => {
-    const newTask = {
-      id: Date.now(),
-      name: formData.taskName,
+    // Prepare task data for API
+    const taskData = {
+      name: formData.taskName,  // ✅ Map taskName to name
+      description: formData.description,
       priority: formData.priority,
-      assignedTo: formData.assignedTo,
       committee: formData.committee,
-      days: formData.date ? calculateDaysLeft(formData.date) : 0,
       link: formData.link,
-      description: formData.description
+      dueDate: formData.date || undefined,
+      // ✅ DON'T send assignedTo if it's empty or just a name
+      // The backend expects an ObjectId, so we'll leave it empty for now
+      // You can implement user selection later
     };
-    
-    onAddTask(columnType, newTask);
+
+    // Calculate days left if date is provided
+    if (formData.date) {
+      const dueDate = new Date(formData.date);
+      const today = new Date();
+      const diffTime = dueDate - today;
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      taskData.days = diffDays > 0 ? diffDays : 0;
+    }
+
+    onAddTask(columnType, taskData);
     handleClose();
   };
 
@@ -111,7 +122,7 @@ function AddTaskModal({ isOpen, onClose, columnType, onAddTask }) {
             </div>
             {formData.date && (
               <div className="confirmation-item">
-                <span className="confirmation-label">Date</span>
+                <span className="confirmation-label">Due Date</span>
                 <span className="confirmation-value">{formData.date}</span>
               </div>
             )}
@@ -171,12 +182,12 @@ function AddTaskModal({ isOpen, onClose, columnType, onAddTask }) {
 
         <form className="task-form" onSubmit={handleSubmit}>
           <div className="form-group">
-            <label className="form-label">Task Name</label>
+            <label className="form-label">Task Name *</label>
             <input
               type="text"
               name="taskName"
               className="form-input"
-              placeholder="Enter project name"
+              placeholder="Enter task name"
               value={formData.taskName}
               onChange={handleInputChange}
               required
@@ -185,7 +196,7 @@ function AddTaskModal({ isOpen, onClose, columnType, onAddTask }) {
 
           <div className="form-row">
             <div className="form-group">
-              <label className="form-label">Date</label>
+              <label className="form-label">Due Date</label>
               <input
                 type="date"
                 name="date"
@@ -202,10 +213,13 @@ function AddTaskModal({ isOpen, onClose, columnType, onAddTask }) {
                 type="text"
                 name="assignedTo"
                 className="form-input"
-                placeholder="Enter location"
+                placeholder="Enter name (display only)"
                 value={formData.assignedTo}
                 onChange={handleInputChange}
               />
+              <small style={{ color: '#999', fontSize: '12px', marginTop: '4px' }}>
+                Note: This is for display only. User assignment coming soon.
+              </small>
             </div>
           </div>
 
@@ -216,7 +230,7 @@ function AddTaskModal({ isOpen, onClose, columnType, onAddTask }) {
                 type="text"
                 name="committee"
                 className="form-input"
-                placeholder="Enter committee assigned"
+                placeholder="Enter committee name"
                 value={formData.committee}
                 onChange={handleInputChange}
               />
@@ -243,7 +257,7 @@ function AddTaskModal({ isOpen, onClose, columnType, onAddTask }) {
               type="url"
               name="link"
               className="form-input"
-              placeholder="Enter link"
+              placeholder="Enter link (optional)"
               value={formData.link}
               onChange={handleInputChange}
             />
@@ -254,7 +268,7 @@ function AddTaskModal({ isOpen, onClose, columnType, onAddTask }) {
             <textarea
               name="description"
               className="form-textarea"
-              placeholder="Enter description"
+              placeholder="Enter description (optional)"
               value={formData.description}
               onChange={handleInputChange}
             />
