@@ -156,7 +156,7 @@
 }
 
 .toggle-btn.active {
-  background: linear-gradient(135deg, #834dfb, #3d0067);
+  background: linear-gradient(75deg, #432683, #3d0067);
   border-color: rgba(255, 255, 255, 0.4);
   box-shadow: 0 4px 20px rgba(131, 77, 251, 0.4);
 }
