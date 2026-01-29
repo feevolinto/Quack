@@ -7,6 +7,7 @@ import ProjectCard from "../components/common/ProjectCard";
 import api from "../services/api";
 import toast from "../utils/toast";
 import "../styles/Home.css";
+import logoIcon from "../assets/home_iconlogo.svg";
 
 function Home() {
   const navigate = useNavigate();
@@ -226,7 +227,7 @@ function Home() {
       <div className="home-container">
         {/* Header */}
         <div className="home-logo-placeholder">
-          <img src="/src/assets/home_iconlogo.svg" alt="Quack" className="brand-name-img" />
+          <img src={logoIcon} alt="quack" className="brand-icon-img" />
         </div>
         <div className="home-header">
           <h1 className="home-title">Home</h1>
