@@ -1,30 +1,35 @@
+// src/routes/task.routes.js
 import express from "express";
-import authMiddleware from "../middleware/authMiddleware.js";
 import {
   createTask,
   getTasksByProject,
   getTaskById,
   updateTask,
   deleteTask
-} from "../controllers/taskController.js";  // ✅ Correct path
+} from "../controllers/taskController.js";
+import authMiddleware from "../middleware/authMiddleware.js";
+import { validate, validateObjectId } from "../middleware/validate.js";
+import { createTaskSchema, updateTaskSchema } from "../validation/schemas.js";
 
 const router = express.Router();
 
 /**
- * CREATE task
+ * CREATE task with validation
  */
 router.post(
   "/",
   authMiddleware,
+  validate(createTaskSchema),
   createTask
 );
 
 /**
- * GET tasks by PROJECT (FIXED: was /board/:boardId)
+ * GET tasks by project
  */
 router.get(
   "/project/:projectId",
   authMiddleware,
+  validateObjectId('projectId'),
   getTasksByProject
 );
 
@@ -34,15 +39,18 @@ router.get(
 router.get(
   "/:id",
   authMiddleware,
+  validateObjectId('id'),
   getTaskById
 );
 
 /**
- * UPDATE task (details or status)
+ * UPDATE task with validation
  */
 router.patch(
   "/:id",
   authMiddleware,
+  validateObjectId('id'),
+  validate(updateTaskSchema),
   updateTask
 );
 
@@ -52,6 +60,7 @@ router.patch(
 router.delete(
   "/:id",
   authMiddleware,
+  validateObjectId('id'),
   deleteTask
 );
 
