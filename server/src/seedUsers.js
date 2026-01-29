@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import bcrypt from "bcryptjs";
 import User from "./models/User.js";
 
 dotenv.config();
@@ -10,16 +11,25 @@ const seedUsers = async () => {
 
     await User.deleteMany();
 
+    // Hash passwords before creating users
+    const salt = await bcrypt.genSalt(12);
+    const hashedPassword = await bcrypt.hash("1234", salt);
+
     await User.create([
       {
         email: "admin@quack.com",
-        password: "1234",
+        password: hashedPassword,
         role: "admin"
       },
       {
         email: "member@quack.com",
-        password: "1234",
+        password: hashedPassword,
         role: "member"
+      },
+      {
+        email: "feevol@quack.com",  // Your new user
+        password: hashedPassword,
+        role: "admin"  // or "admin"
       }
     ]);
 
