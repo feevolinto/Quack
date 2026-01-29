@@ -7,6 +7,7 @@ import { useRole } from "../hooks/useRole";
 import toast from "../utils/toast";
 import "../styles/History.css";
 import restoreIcon from "../assets/restore.svg";
+import logoIcon from "../assets/home_iconlogo.svg";
 
 function History() {
   const navigate = useNavigate();
@@ -156,7 +157,7 @@ function History() {
         {/* Header */}
         <div className="history-header">
           <div className="history-logo-placeholder">
-            <img src="/src/assets/home_iconlogo.svg" alt="Quack" className="brand-icon-img" />
+            <img src={logoIcon} alt="quack" className="brand-icon-img" />
           </div>
           <h2 className="history-subtitle">View and restore past projects</h2>
           <h1 className="history-title">Project History</h1>
