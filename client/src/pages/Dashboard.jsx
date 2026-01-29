@@ -8,6 +8,7 @@ import toast from "../utils/toast";
 import "../styles/Dashboard.css";
 import deleteIcon from "../assets/delete.svg";
 import api from "../services/api";
+import logoIcon from "../assets/home_iconlogo.svg";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -127,7 +128,7 @@ function Dashboard() {
         {/* Header */}
         <div className="dashboard-header">
           <div className="dashboard-logo-placeholder">
-            <img src="/src/assets/home_iconlogo.svg" alt="Quack" className="brand-icon-img" />
+            <img src={logoIcon} alt="quack" className="brand-icon-img" />
           </div>
           <h2 className="dashboard-subtitle">Manage and track your projects</h2>
           <h1 className="dashboard-title">Project Dashboard</h1>
