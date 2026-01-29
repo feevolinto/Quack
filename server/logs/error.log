@@ -1,0 +1,48 @@
+2026-01-29 21:02:47 [error]: TypeError: Cannot set property query of #<IncomingMessage> which has only a getter
+    at /Users/feevolinto/Quack/server/node_modules/express-mongo-sanitize/index.js:113:18
+    at Array.forEach (<anonymous>)
+    at /Users/feevolinto/Quack/server/node_modules/express-mongo-sanitize/index.js:110:44
+    at Layer.handleRequest (/Users/feevolinto/Quack/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/feevolinto/Quack/server/node_modules/router/index.js:342:13)
+    at /Users/feevolinto/Quack/server/node_modules/router/index.js:297:9
+    at processParams (/Users/feevolinto/Quack/server/node_modules/router/index.js:582:12)
+    at next (/Users/feevolinto/Quack/server/node_modules/router/index.js:291:5)
+    at read (/Users/feevolinto/Quack/server/node_modules/body-parser/lib/read.js:43:5)
+    at urlencodedParser (/Users/feevolinto/Quack/server/node_modules/body-parser/lib/types/urlencoded.js:58:5)
+2026-01-29 21:04:52 [error]: TypeError: Cannot set property query of #<IncomingMessage> which has only a getter
+    at /Users/feevolinto/Quack/server/node_modules/express-mongo-sanitize/index.js:113:18
+    at Array.forEach (<anonymous>)
+    at /Users/feevolinto/Quack/server/node_modules/express-mongo-sanitize/index.js:110:44
+    at Layer.handleRequest (/Users/feevolinto/Quack/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/feevolinto/Quack/server/node_modules/router/index.js:342:13)
+    at /Users/feevolinto/Quack/server/node_modules/router/index.js:297:9
+    at processParams (/Users/feevolinto/Quack/server/node_modules/router/index.js:582:12)
+    at next (/Users/feevolinto/Quack/server/node_modules/router/index.js:291:5)
+    at read (/Users/feevolinto/Quack/server/node_modules/body-parser/lib/read.js:43:5)
+    at urlencodedParser (/Users/feevolinto/Quack/server/node_modules/body-parser/lib/types/urlencoded.js:58:5)
+2026-01-29 21:07:54 [error]: TypeError: Cannot set property query of #<IncomingMessage> which has only a getter
+    at /Users/feevolinto/Quack/server/node_modules/express-mongo-sanitize/index.js:113:18
+    at Array.forEach (<anonymous>)
+    at /Users/feevolinto/Quack/server/node_modules/express-mongo-sanitize/index.js:110:44
+    at Layer.handleRequest (/Users/feevolinto/Quack/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/feevolinto/Quack/server/node_modules/router/index.js:342:13)
+    at /Users/feevolinto/Quack/server/node_modules/router/index.js:297:9
+    at processParams (/Users/feevolinto/Quack/server/node_modules/router/index.js:582:12)
+    at next (/Users/feevolinto/Quack/server/node_modules/router/index.js:291:5)
+    at read (/Users/feevolinto/Quack/server/node_modules/body-parser/lib/read.js:43:5)
+    at urlencodedParser (/Users/feevolinto/Quack/server/node_modules/body-parser/lib/types/urlencoded.js:58:5)
+2026-01-29 21:08:46 [error]: TypeError: Cannot set property query of #<IncomingMessage> which has only a getter
+    at /Users/feevolinto/Quack/server/node_modules/express-mongo-sanitize/index.js:113:18
+    at Array.forEach (<anonymous>)
+    at /Users/feevolinto/Quack/server/node_modules/express-mongo-sanitize/index.js:110:44
+    at Layer.handleRequest (/Users/feevolinto/Quack/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/feevolinto/Quack/server/node_modules/router/index.js:342:13)
+    at /Users/feevolinto/Quack/server/node_modules/router/index.js:297:9
+    at processParams (/Users/feevolinto/Quack/server/node_modules/router/index.js:582:12)
+    at next (/Users/feevolinto/Quack/server/node_modules/router/index.js:291:5)
+    at read (/Users/feevolinto/Quack/server/node_modules/body-parser/lib/read.js:43:5)
+    at urlencodedParser (/Users/feevolinto/Quack/server/node_modules/body-parser/lib/types/urlencoded.js:58:5)
+2026-01-29 21:11:49 [error]: Error: Invalid email or password
+    at file:///Users/feevolinto/Quack/server/src/controllers/authController.js:93:17
+2026-01-29 21:12:54 [error]: Error: Invalid email or password
+    at file:///Users/feevolinto/Quack/server/src/controllers/authController.js:93:17
