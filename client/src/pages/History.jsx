@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import RoleProtected from "../components/common/RoleProtected";
 import { useRole } from "../hooks/useRole";
+import toast from "../utils/toast";
 import "../styles/History.css";
 import restoreIcon from "../assets/restore.svg";
 
@@ -46,6 +47,7 @@ function History() {
     } catch (err) {
       console.error("❌ Failed to load archived projects:", err);
       setError(err.message);
+      toast.error("Failed to load archived projects");
 
       if (err.message.includes("token") || err.message.includes("401")) {
         navigate("/login");
@@ -66,7 +68,7 @@ function History() {
 
   const handleRestoreProject = async (projectId) => {
     if (!isAdmin) {
-      alert("Only administrators can restore projects");
+      toast.warning("Only administrators can restore projects");
       return;
     }
 
@@ -76,16 +78,17 @@ function History() {
 
     try {
       console.log("🔄 Restoring project:", projectId);
+      toast.info("Restoring project...");
       
       const restored = await api.restoreProject(projectId);
       console.log("✅ Project restored:", restored);
 
       setArchivedProjects(archivedProjects.filter(project => project._id !== projectId));
 
-      alert("Project restored successfully!");
+      toast.success("Project restored successfully!");
     } catch (err) {
       console.error("❌ Failed to restore project:", err);
-      alert(`Failed to restore project: ${err.message}`);
+      toast.error(`Failed to restore project: ${err.message}`);
     }
   };
 
