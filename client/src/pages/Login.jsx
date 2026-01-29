@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
+import toast from "../utils/toast";
 import "../styles/Login.css";
 
 function Login() {
@@ -21,6 +22,7 @@ function Login() {
 
     try {
       console.log("🔐 Attempting login...", { email, userType });
+      toast.info("Logging in...");
       
       // Call backend API
       const response = await api.login(email, password, userType);
@@ -30,11 +32,15 @@ function Login() {
       // Save to context
       login(response.token, response.user);
       
+      toast.success("Login successful!");
+      
       // Redirect to home/dashboard
       navigate("/");
     } catch (err) {
       console.error("❌ Login error:", err);
-      setError(err.message || "Login failed. Please check your credentials.");
+      const errorMessage = err.message || "Login failed. Please check your credentials.";
+      setError(errorMessage);
+      toast.error(errorMessage);
     } finally {
       setLoading(false);
     }
