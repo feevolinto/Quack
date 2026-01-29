@@ -1,7 +1,7 @@
 // src/services/api.js
 
-// Base URL of your backend server
-const API_BASE_URL = "http://localhost:3000/api"; // ✅ Changed from 3000 to 5000
+// Use environment variable for API URL
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api";
 
 /**
  * Helper function to make authenticated API calls
@@ -29,14 +29,20 @@ const apiRequest = async (endpoint, options = {}) => {
 
     const data = await response.json();
 
-    // If response is not OK, throw error
+    // If response is not OK, throw error with proper message
     if (!response.ok) {
-      throw new Error(data.message || "API request failed");
+      throw new Error(data.message || `HTTP ${response.status}: ${response.statusText}`);
     }
 
-    return data;
+    return data.data || data; // Return data or full response
   } catch (error) {
     console.error("API Error:", error);
+    
+    // Handle network errors
+    if (error.message === 'Failed to fetch') {
+      throw new Error('Network error. Please check your connection.');
+    }
+    
     throw error;
   }
 };
@@ -66,7 +72,7 @@ export const api = {
     localStorage.removeItem("userRole");
   },
 
-  getMe: () => apiRequest("/users/me"),
+  getMe: () => apiRequest("/auth/me"),
 
   // ============ PROJECTS ============
   createProject: (projectData) =>
