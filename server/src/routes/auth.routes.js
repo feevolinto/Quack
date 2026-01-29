@@ -1,97 +1,19 @@
-// import express from "express";
-// import User from "../models/User.js";
-// import jwt from "jsonwebtoken";
-
-// const router = express.Router();
-
-// router.post("/login", async (req, res) => {
-//   const { email, password, role } = req.body;
-
-//   try {
-//     const user = await User.findOne({ email });
-
-//     if (!user) {
-//       return res.status(401).json({ message: "User not found" });
-//     }
-
-//     if (user.password !== password) {
-//       return res.status(401).json({ message: "Invalid password" });
-//     }
-
-//     if (user.role !== role) {
-//       return res.status(401).json({ message: "Role mismatch" });
-//     }
-
-//     const token = jwt.sign(
-//       { id: user._id, email: user.email, role: user.role },
-//       process.env.JWT_SECRET,
-//       { expiresIn: "7d" }
-//     );
-
-//     res.json({
-//       message: "Login successful",
-//       token,
-//       user: {
-//         email: user.email,
-//         role: user.role
-//       }
-//     });
-//   } catch (error) {
-//     res.status(500).json({ message: "Server error" });
-//   }
-// });
-
-// export default router;
-
+// src/routes/auth.routes.js
 import express from "express";
-import User from "../models/User.js";
-import jwt from "jsonwebtoken";
+import { login, register, getMe } from "../controllers/authController.js";
+import authMiddleware from "../middleware/authMiddleware.js";
+import { validate } from "../middleware/validate.js";
+import { loginSchema, registerSchema } from "../validation/schemas.js";
 
 const router = express.Router();
 
-router.post("/login", async (req, res) => {
-  console.log("Login attempt:", req.body); // ADD THIS LINE
+// Register with validation
+router.post("/register", validate(registerSchema), register);
 
-  const { email, password, role } = req.body;
+// Login with validation
+router.post("/login", validate(loginSchema), login);
 
-  try {
-    const user = await User.findOne({ email });
-    console.log("User found:", user); // ADD THIS LINE
-
-    if (!user) {
-      return res.status(401).json({ message: "User not found" });
-    }
-
-    if (user.password !== password) {
-      console.log("Password mismatch"); // ADD THIS LINE
-      return res.status(401).json({ message: "Invalid password" });
-    }
-
-    if (user.role !== role) {
-      console.log("Role mismatch"); // ADD THIS LINE
-      return res.status(401).json({ message: "Role mismatch" });
-    }
-
-    const token = jwt.sign(
-      { id: user._id, email: user.email, role: user.role },
-      process.env.JWT_SECRET,
-      { expiresIn: "7d" }
-    );
-
-    console.log("Login successful, token generated"); // ADD THIS LINE
-
-    res.json({
-      message: "Login successful",
-      token,
-      user: {
-        email: user.email,
-        role: user.role
-      }
-    });
-  } catch (error) {
-    console.error("Login error:", error); // ADD THIS LINE
-    res.status(500).json({ message: "Server error", error: error.message });
-  }
-});
+// Get current user (protected route)
+router.get("/me", authMiddleware, getMe);
 
 export default router;
