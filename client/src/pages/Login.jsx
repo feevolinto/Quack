@@ -7,6 +7,8 @@ import toast from "../utils/toast";
 import "../styles/Login.css";
 import logo from "../assets/logo_login.svg";
 import background from "../assets/background_login.png";
+import footer from "../assets/logo_login_footer.svg";
+
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -140,7 +142,7 @@ function Login() {
 
         {/* Footer Logo */}
         <div className="login-footer">
-          <img src="/src/assets/logo_login_footer.svg" alt="" />
+          <img src={footer} alt="quack" className="" />
         </div>
       </div>
     </div>
