@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../services/api";
+import toast from "../utils/toast";
 import AddTaskModal from "../components/tasks/AddTaskModal";
 import EditTaskModal from "../components/tasks/EditTaskModal";
 import TaskDetailModal from "../components/tasks/TaskDetailModal";
@@ -67,7 +68,7 @@ function ProjectOverview() {
       setTasks(organized);
     } catch (err) {
       console.error("❌ Failed to load data:", err);
-      alert("Failed to load project data");
+      toast.error("Failed to load project data");
     } finally {
       setLoading(false);
     }
@@ -81,6 +82,7 @@ function ProjectOverview() {
   const handleCreateTask = async (column, taskData) => {
     try {
       console.log("📡 Creating task:", taskData);
+      toast.info("Creating task...");
       
       // Map column to status
       const statusMap = {
@@ -127,9 +129,11 @@ function ProjectOverview() {
         ...prevTasks,
         [column]: [...prevTasks[column], displayTask]
       }));
+      
+      toast.success("Task created successfully!");
     } catch (err) {
       console.error("❌ Failed to create task:", err);
-      alert(`Failed to create task: ${err.message}`);
+      toast.error(`Failed to create task: ${err.message}`);
     }
   };
 
@@ -148,9 +152,10 @@ function ProjectOverview() {
       
       // Reload data to get fresh state
       loadProjectAndTasks();
+      toast.success("Task updated successfully!");
     } catch (err) {
       console.error("❌ Failed to update task:", err);
-      alert(err.message);
+      toast.error(err.message);
     }
   };
 
@@ -161,7 +166,7 @@ function ProjectOverview() {
 
   const handleEditProject = () => {
     if (!canEdit) {
-      alert("Only administrators can edit projects");
+      toast.warning("Only administrators can edit projects");
       return;
     }
     setShowEditProjectModal(true);
@@ -174,15 +179,16 @@ function ProjectOverview() {
       console.log("✅ Project updated");
       
       setProject(updatedProject);
+      toast.success("Project updated successfully!");
     } catch (err) {
       console.error("❌ Failed to update project:", err);
-      alert(err.message);
+      toast.error(err.message);
     }
   };
 
   const handleDeleteProject = () => {
     if (!canDelete) {
-      alert("Only administrators can delete projects");
+      toast.warning("Only administrators can delete projects");
       return;
     }
     setShowDeleteModal(true);
@@ -194,10 +200,11 @@ function ProjectOverview() {
       await api.deleteProject(projectId);
       console.log("✅ Project deleted");
       setShowDeleteModal(false);
+      toast.success("Project deleted successfully!");
       navigate("/dashboard");
     } catch (err) {
       console.error("❌ Failed to delete project:", err);
-      alert(err.message);
+      toast.error(err.message);
     }
   };
 
@@ -248,9 +255,11 @@ function ProjectOverview() {
         [draggedFromColumn]: updatedFromColumn,
         [targetColumn]: updatedToColumn
       });
+      
+      toast.success("Task moved successfully!");
     } catch (err) {
       console.error("❌ Failed to move task:", err);
-      alert("Failed to move task");
+      toast.error("Failed to move task");
       loadProjectAndTasks(); // Reload on error
     }
 
