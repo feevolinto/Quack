@@ -1,7 +1,7 @@
 {
   "name": "quack-server",
   "version": "1.0.0",
-  "description": "Backend server for Quack project management board",
+  "description": "Backend server for Quack task management board",
   "type": "module",
   "main": "src/server.js",
   "scripts": {
