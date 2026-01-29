@@ -5,6 +5,7 @@ import TeamCard from "../components/home/TeamCard";
 import SummaryCards from "../components/home/SummaryCards";
 import ProjectCard from "../components/common/ProjectCard";
 import api from "../services/api";
+import toast from "../utils/toast";
 import "../styles/Home.css";
 
 function Home() {
@@ -96,6 +97,7 @@ function Home() {
             };
           } catch (err) {
             console.error(`❌ Failed to load tasks for project ${project._id}:`, err);
+            toast.warning(`Could not load tasks for ${project.name}`);
             return {
               _id: project._id,
               id: project._id,
@@ -140,6 +142,7 @@ function Home() {
     } catch (err) {
       console.error("❌ Failed to load home data:", err);
       setError(err.message);
+      toast.error("Failed to load home data");
       
       // If unauthorized, redirect to login
       if (err.message.includes("token") || err.message.includes("401") || err.message.includes("Invalid token")) {
