@@ -1,0 +1,560 @@
+2026-01-29 21:02:47 [error]: TypeError: Cannot set property query of #<IncomingMessage> which has only a getter
+    at /Users/feevolinto/Quack/server/node_modules/express-mongo-sanitize/index.js:113:18
+    at Array.forEach (<anonymous>)
+    at /Users/feevolinto/Quack/server/node_modules/express-mongo-sanitize/index.js:110:44
+    at Layer.handleRequest (/Users/feevolinto/Quack/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/feevolinto/Quack/server/node_modules/router/index.js:342:13)
+    at /Users/feevolinto/Quack/server/node_modules/router/index.js:297:9
+    at processParams (/Users/feevolinto/Quack/server/node_modules/router/index.js:582:12)
+    at next (/Users/feevolinto/Quack/server/node_modules/router/index.js:291:5)
+    at read (/Users/feevolinto/Quack/server/node_modules/body-parser/lib/read.js:43:5)
+    at urlencodedParser (/Users/feevolinto/Quack/server/node_modules/body-parser/lib/types/urlencoded.js:58:5)
+2026-01-29 21:04:52 [error]: TypeError: Cannot set property query of #<IncomingMessage> which has only a getter
+    at /Users/feevolinto/Quack/server/node_modules/express-mongo-sanitize/index.js:113:18
+    at Array.forEach (<anonymous>)
+    at /Users/feevolinto/Quack/server/node_modules/express-mongo-sanitize/index.js:110:44
+    at Layer.handleRequest (/Users/feevolinto/Quack/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/feevolinto/Quack/server/node_modules/router/index.js:342:13)
+    at /Users/feevolinto/Quack/server/node_modules/router/index.js:297:9
+    at processParams (/Users/feevolinto/Quack/server/node_modules/router/index.js:582:12)
+    at next (/Users/feevolinto/Quack/server/node_modules/router/index.js:291:5)
+    at read (/Users/feevolinto/Quack/server/node_modules/body-parser/lib/read.js:43:5)
+    at urlencodedParser (/Users/feevolinto/Quack/server/node_modules/body-parser/lib/types/urlencoded.js:58:5)
+2026-01-29 21:07:54 [error]: TypeError: Cannot set property query of #<IncomingMessage> which has only a getter
+    at /Users/feevolinto/Quack/server/node_modules/express-mongo-sanitize/index.js:113:18
+    at Array.forEach (<anonymous>)
+    at /Users/feevolinto/Quack/server/node_modules/express-mongo-sanitize/index.js:110:44
+    at Layer.handleRequest (/Users/feevolinto/Quack/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/feevolinto/Quack/server/node_modules/router/index.js:342:13)
+    at /Users/feevolinto/Quack/server/node_modules/router/index.js:297:9
+    at processParams (/Users/feevolinto/Quack/server/node_modules/router/index.js:582:12)
+    at next (/Users/feevolinto/Quack/server/node_modules/router/index.js:291:5)
+    at read (/Users/feevolinto/Quack/server/node_modules/body-parser/lib/read.js:43:5)
+    at urlencodedParser (/Users/feevolinto/Quack/server/node_modules/body-parser/lib/types/urlencoded.js:58:5)
+2026-01-29 21:08:46 [error]: TypeError: Cannot set property query of #<IncomingMessage> which has only a getter
+    at /Users/feevolinto/Quack/server/node_modules/express-mongo-sanitize/index.js:113:18
+    at Array.forEach (<anonymous>)
+    at /Users/feevolinto/Quack/server/node_modules/express-mongo-sanitize/index.js:110:44
+    at Layer.handleRequest (/Users/feevolinto/Quack/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/feevolinto/Quack/server/node_modules/router/index.js:342:13)
+    at /Users/feevolinto/Quack/server/node_modules/router/index.js:297:9
+    at processParams (/Users/feevolinto/Quack/server/node_modules/router/index.js:582:12)
+    at next (/Users/feevolinto/Quack/server/node_modules/router/index.js:291:5)
+    at read (/Users/feevolinto/Quack/server/node_modules/body-parser/lib/read.js:43:5)
+    at urlencodedParser (/Users/feevolinto/Quack/server/node_modules/body-parser/lib/types/urlencoded.js:58:5)
+2026-01-29 21:11:49 [info]: Incoming request
+2026-01-29 21:11:49 [warn]: Login attempt with incorrect password
+2026-01-29 21:11:49 [error]: Error: Invalid email or password
+    at file:///Users/feevolinto/Quack/server/src/controllers/authController.js:93:17
+2026-01-29 21:11:49 [info]: ::1 - - [29/Jan/2026:13:11:49 +0000] "POST /api/auth/login HTTP/1.1" 401 184 "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:12:54 [info]: Incoming request
+2026-01-29 21:12:54 [warn]: Login attempt with incorrect password
+2026-01-29 21:12:54 [error]: Error: Invalid email or password
+    at file:///Users/feevolinto/Quack/server/src/controllers/authController.js:93:17
+2026-01-29 21:12:54 [info]: ::1 - - [29/Jan/2026:13:12:54 +0000] "POST /api/auth/login HTTP/1.1" 401 184 "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:01 [info]: Incoming request
+2026-01-29 21:16:01 [info]: User logged in successfully
+2026-01-29 21:16:01 [info]: ::1 - - [29/Jan/2026:13:16:01 +0000] "POST /api/auth/login HTTP/1.1" 200 329 "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:01 [info]: Incoming request
+2026-01-29 21:16:01 [info]: ::1 - - [29/Jan/2026:13:16:01 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:01 [info]: Incoming request
+2026-01-29 21:16:01 [info]: Incoming request
+2026-01-29 21:16:01 [info]: Incoming request
+2026-01-29 21:16:01 [info]: Incoming request
+2026-01-29 21:16:01 [info]: Incoming request
+2026-01-29 21:16:01 [info]: ::1 - - [29/Jan/2026:13:16:01 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:01 [info]: ::1 - - [29/Jan/2026:13:16:01 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:01 [info]: ::1 - - [29/Jan/2026:13:16:01 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:01 [info]: Incoming request
+2026-01-29 21:16:01 [info]: Incoming request
+2026-01-29 21:16:01 [info]: ::1 - - [29/Jan/2026:13:16:01 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:01 [info]: ::1 - - [29/Jan/2026:13:16:01 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:02 [info]: ::1 - - [29/Jan/2026:13:16:02 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:02 [info]: ::1 - - [29/Jan/2026:13:16:02 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:02 [info]: Incoming request
+2026-01-29 21:16:02 [info]: Incoming request
+2026-01-29 21:16:02 [info]: ::1 - - [29/Jan/2026:13:16:02 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:02 [info]: ::1 - - [29/Jan/2026:13:16:02 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:15 [info]: Incoming request
+2026-01-29 21:16:15 [info]: User logged in successfully
+2026-01-29 21:16:15 [info]: ::1 - - [29/Jan/2026:13:16:15 +0000] "POST /api/auth/login HTTP/1.1" 200 332 "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:15 [info]: Incoming request
+2026-01-29 21:16:16 [info]: ::1 - - [29/Jan/2026:13:16:16 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:16 [info]: Incoming request
+2026-01-29 21:16:16 [info]: Incoming request
+2026-01-29 21:16:16 [info]: Incoming request
+2026-01-29 21:16:16 [info]: Incoming request
+2026-01-29 21:16:16 [info]: Incoming request
+2026-01-29 21:16:16 [info]: ::1 - - [29/Jan/2026:13:16:16 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:16 [info]: ::1 - - [29/Jan/2026:13:16:16 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:16 [info]: ::1 - - [29/Jan/2026:13:16:16 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:16 [info]: ::1 - - [29/Jan/2026:13:16:16 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:16 [info]: ::1 - - [29/Jan/2026:13:16:16 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:16 [info]: Incoming request
+2026-01-29 21:16:16 [info]: Incoming request
+2026-01-29 21:16:16 [info]: Incoming request
+2026-01-29 21:16:16 [info]: Incoming request
+2026-01-29 21:16:16 [info]: ::1 - - [29/Jan/2026:13:16:16 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:16 [info]: ::1 - - [29/Jan/2026:13:16:16 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:16 [info]: ::1 - - [29/Jan/2026:13:16:16 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:16 [info]: ::1 - - [29/Jan/2026:13:16:16 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:18 [info]: Incoming request
+2026-01-29 21:16:18 [info]: ::1 - - [29/Jan/2026:13:16:18 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:18 [info]: Incoming request
+2026-01-29 21:16:19 [info]: ::1 - - [29/Jan/2026:13:16:19 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:20 [info]: Incoming request
+2026-01-29 21:16:20 [info]: ::1 - - [29/Jan/2026:13:16:20 +0000] "GET /api/projects/archived HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:20 [info]: Incoming request
+2026-01-29 21:16:20 [info]: ::1 - - [29/Jan/2026:13:16:20 +0000] "GET /api/projects/archived HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:21 [info]: Incoming request
+2026-01-29 21:16:21 [info]: ::1 - - [29/Jan/2026:13:16:21 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:21 [info]: Incoming request
+2026-01-29 21:16:21 [info]: ::1 - - [29/Jan/2026:13:16:21 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:22 [info]: Incoming request
+2026-01-29 21:16:22 [info]: ::1 - - [29/Jan/2026:13:16:22 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:22 [info]: Incoming request
+2026-01-29 21:16:22 [info]: Incoming request
+2026-01-29 21:16:22 [info]: Incoming request
+2026-01-29 21:16:22 [info]: Incoming request
+2026-01-29 21:16:22 [info]: Incoming request
+2026-01-29 21:16:22 [info]: ::1 - - [29/Jan/2026:13:16:22 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:22 [info]: ::1 - - [29/Jan/2026:13:16:22 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:22 [info]: ::1 - - [29/Jan/2026:13:16:22 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:22 [info]: Incoming request
+2026-01-29 21:16:22 [info]: Incoming request
+2026-01-29 21:16:22 [info]: ::1 - - [29/Jan/2026:13:16:22 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:22 [info]: Incoming request
+2026-01-29 21:16:22 [info]: ::1 - - [29/Jan/2026:13:16:22 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:22 [info]: Incoming request
+2026-01-29 21:16:22 [info]: ::1 - - [29/Jan/2026:13:16:22 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:22 [info]: ::1 - - [29/Jan/2026:13:16:22 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:22 [info]: ::1 - - [29/Jan/2026:13:16:22 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:16:22 [info]: ::1 - - [29/Jan/2026:13:16:22 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:18:58 [info]: Incoming request
+2026-01-29 21:18:59 [info]: User logged in successfully
+2026-01-29 21:18:59 [info]: ::1 - - [29/Jan/2026:13:18:59 +0000] "POST /api/auth/login HTTP/1.1" 200 330 "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:18:59 [info]: Incoming request
+2026-01-29 21:18:59 [info]: ::1 - - [29/Jan/2026:13:18:59 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:18:59 [info]: Incoming request
+2026-01-29 21:18:59 [info]: Incoming request
+2026-01-29 21:18:59 [info]: Incoming request
+2026-01-29 21:18:59 [info]: Incoming request
+2026-01-29 21:18:59 [info]: Incoming request
+2026-01-29 21:18:59 [info]: ::1 - - [29/Jan/2026:13:18:59 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:18:59 [info]: ::1 - - [29/Jan/2026:13:18:59 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:18:59 [info]: ::1 - - [29/Jan/2026:13:18:59 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:18:59 [info]: Incoming request
+2026-01-29 21:18:59 [info]: Incoming request
+2026-01-29 21:18:59 [info]: ::1 - - [29/Jan/2026:13:18:59 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:18:59 [info]: ::1 - - [29/Jan/2026:13:18:59 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:19:00 [info]: ::1 - - [29/Jan/2026:13:19:00 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:19:00 [info]: Incoming request
+2026-01-29 21:19:00 [info]: ::1 - - [29/Jan/2026:13:19:00 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:19:00 [info]: ::1 - - [29/Jan/2026:13:19:00 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:19:00 [info]: Incoming request
+2026-01-29 21:19:00 [info]: ::1 - - [29/Jan/2026:13:19:00 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:19:26 [info]: Incoming request
+2026-01-29 21:19:26 [info]: ::1 - - [29/Jan/2026:13:19:26 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:19:26 [info]: Incoming request
+2026-01-29 21:19:26 [info]: ::1 - - [29/Jan/2026:13:19:26 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:19:27 [info]: Incoming request
+2026-01-29 21:19:28 [info]: ::1 - - [29/Jan/2026:13:19:28 +0000] "GET /api/projects/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:19:28 [info]: Incoming request
+2026-01-29 21:19:28 [info]: Incoming request
+2026-01-29 21:19:28 [info]: ::1 - - [29/Jan/2026:13:19:28 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:19:28 [info]: ::1 - - [29/Jan/2026:13:19:28 +0000] "GET /api/projects/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:19:28 [info]: Incoming request
+2026-01-29 21:19:28 [info]: ::1 - - [29/Jan/2026:13:19:28 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:19:30 [info]: Incoming request
+2026-01-29 21:19:30 [info]: ::1 - - [29/Jan/2026:13:19:30 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:19:30 [info]: Incoming request
+2026-01-29 21:19:30 [info]: ::1 - - [29/Jan/2026:13:19:30 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:19:31 [info]: Incoming request
+2026-01-29 21:19:31 [info]: ::1 - - [29/Jan/2026:13:19:31 +0000] "GET /api/projects/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:19:31 [info]: Incoming request
+2026-01-29 21:19:31 [info]: Incoming request
+2026-01-29 21:19:31 [info]: ::1 - - [29/Jan/2026:13:19:31 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:19:31 [info]: ::1 - - [29/Jan/2026:13:19:31 +0000] "GET /api/projects/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:19:31 [info]: Incoming request
+2026-01-29 21:19:32 [info]: ::1 - - [29/Jan/2026:13:19:32 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:19:50 [info]: Incoming request
+2026-01-29 21:19:50 [info]: ::1 - - [29/Jan/2026:13:19:50 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:19:50 [info]: Incoming request
+2026-01-29 21:19:51 [info]: ::1 - - [29/Jan/2026:13:19:51 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:21:47 [info]: Incoming request
+2026-01-29 21:21:47 [info]: Incoming request
+2026-01-29 21:21:47 [info]: ::1 - - [29/Jan/2026:13:21:47 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:21:47 [info]: Incoming request
+2026-01-29 21:21:47 [info]: ::1 - - [29/Jan/2026:13:21:47 +0000] "GET /api/auth/me HTTP/1.1" 200 99 "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:21:47 [info]: ::1 - - [29/Jan/2026:13:21:47 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:21:47 [info]: Incoming request
+2026-01-29 21:21:47 [info]: ::1 - - [29/Jan/2026:13:21:47 +0000] "GET /api/auth/me HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:21:50 [info]: Incoming request
+2026-01-29 21:21:50 [info]: ::1 - - [29/Jan/2026:13:21:50 +0000] "GET /api/projects/archived HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:21:50 [info]: Incoming request
+2026-01-29 21:21:50 [info]: ::1 - - [29/Jan/2026:13:21:50 +0000] "GET /api/projects/archived HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:21:51 [info]: Incoming request
+2026-01-29 21:21:51 [info]: ::1 - - [29/Jan/2026:13:21:51 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:21:51 [info]: Incoming request
+2026-01-29 21:21:51 [info]: ::1 - - [29/Jan/2026:13:21:51 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:21:52 [info]: Incoming request
+2026-01-29 21:21:52 [info]: ::1 - - [29/Jan/2026:13:21:52 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:21:52 [info]: Incoming request
+2026-01-29 21:21:52 [info]: Incoming request
+2026-01-29 21:21:52 [info]: Incoming request
+2026-01-29 21:21:52 [info]: Incoming request
+2026-01-29 21:21:52 [info]: Incoming request
+2026-01-29 21:21:52 [info]: ::1 - - [29/Jan/2026:13:21:52 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:21:52 [info]: ::1 - - [29/Jan/2026:13:21:52 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:21:52 [info]: ::1 - - [29/Jan/2026:13:21:52 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:21:52 [info]: Incoming request
+2026-01-29 21:21:52 [info]: Incoming request
+2026-01-29 21:21:52 [info]: ::1 - - [29/Jan/2026:13:21:52 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:21:52 [info]: Incoming request
+2026-01-29 21:21:52 [info]: ::1 - - [29/Jan/2026:13:21:52 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:21:52 [info]: ::1 - - [29/Jan/2026:13:21:52 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:21:52 [info]: ::1 - - [29/Jan/2026:13:21:52 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:21:52 [info]: ::1 - - [29/Jan/2026:13:21:52 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:21:52 [info]: Incoming request
+2026-01-29 21:21:53 [info]: ::1 - - [29/Jan/2026:13:21:53 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:22:01 [info]: Incoming request
+2026-01-29 21:22:01 [info]: ::1 - - [29/Jan/2026:13:22:01 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:22:01 [info]: Incoming request
+2026-01-29 21:22:01 [info]: ::1 - - [29/Jan/2026:13:22:01 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:22:05 [info]: Incoming request
+2026-01-29 21:22:05 [info]: ::1 - - [29/Jan/2026:13:22:05 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:22:05 [info]: Incoming request
+2026-01-29 21:22:05 [info]: Incoming request
+2026-01-29 21:22:05 [info]: Incoming request
+2026-01-29 21:22:05 [info]: Incoming request
+2026-01-29 21:22:05 [info]: Incoming request
+2026-01-29 21:22:05 [info]: ::1 - - [29/Jan/2026:13:22:05 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:22:05 [info]: ::1 - - [29/Jan/2026:13:22:05 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:22:05 [info]: ::1 - - [29/Jan/2026:13:22:05 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:22:05 [info]: ::1 - - [29/Jan/2026:13:22:05 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:22:05 [info]: Incoming request
+2026-01-29 21:22:05 [info]: ::1 - - [29/Jan/2026:13:22:05 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:22:05 [info]: Incoming request
+2026-01-29 21:22:05 [info]: Incoming request
+2026-01-29 21:22:05 [info]: Incoming request
+2026-01-29 21:22:05 [info]: ::1 - - [29/Jan/2026:13:22:05 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:22:05 [info]: ::1 - - [29/Jan/2026:13:22:05 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:22:05 [info]: ::1 - - [29/Jan/2026:13:22:05 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:22:05 [info]: ::1 - - [29/Jan/2026:13:22:05 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:24:40 [info]: Incoming request
+2026-01-29 21:24:40 [info]: Incoming request
+2026-01-29 21:24:40 [info]: ::1 - - [29/Jan/2026:13:24:40 +0000] "GET /api/auth/me HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:24:40 [info]: Incoming request
+2026-01-29 21:24:40 [info]: ::1 - - [29/Jan/2026:13:24:40 +0000] "GET /api/auth/me HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:24:40 [info]: ::1 - - [29/Jan/2026:13:24:40 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:24:40 [info]: Incoming request
+2026-01-29 21:24:40 [info]: Incoming request
+2026-01-29 21:24:40 [info]: Incoming request
+2026-01-29 21:24:40 [info]: Incoming request
+2026-01-29 21:24:40 [info]: Incoming request
+2026-01-29 21:24:40 [info]: ::1 - - [29/Jan/2026:13:24:40 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:24:40 [info]: ::1 - - [29/Jan/2026:13:24:40 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:24:40 [info]: ::1 - - [29/Jan/2026:13:24:40 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:24:40 [info]: ::1 - - [29/Jan/2026:13:24:40 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:24:40 [info]: ::1 - - [29/Jan/2026:13:24:40 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:24:41 [info]: Incoming request
+2026-01-29 21:24:41 [info]: Incoming request
+2026-01-29 21:24:41 [info]: Incoming request
+2026-01-29 21:24:41 [info]: Incoming request
+2026-01-29 21:24:41 [info]: ::1 - - [29/Jan/2026:13:24:41 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:24:41 [info]: ::1 - - [29/Jan/2026:13:24:41 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:24:41 [info]: ::1 - - [29/Jan/2026:13:24:41 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:24:41 [info]: ::1 - - [29/Jan/2026:13:24:41 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:25:54 [info]: Incoming request
+2026-01-29 21:25:54 [info]: Incoming request
+2026-01-29 21:25:54 [info]: ::1 - - [29/Jan/2026:13:25:54 +0000] "GET /api/auth/me HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:25:54 [info]: Incoming request
+2026-01-29 21:25:54 [info]: ::1 - - [29/Jan/2026:13:25:54 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:25:54 [info]: Incoming request
+2026-01-29 21:25:54 [info]: Incoming request
+2026-01-29 21:25:54 [info]: Incoming request
+2026-01-29 21:25:54 [info]: Incoming request
+2026-01-29 21:25:54 [info]: Incoming request
+2026-01-29 21:25:54 [info]: ::1 - - [29/Jan/2026:13:25:54 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:25:54 [info]: ::1 - - [29/Jan/2026:13:25:54 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:25:54 [info]: ::1 - - [29/Jan/2026:13:25:54 +0000] "GET /api/auth/me HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:25:54 [info]: ::1 - - [29/Jan/2026:13:25:54 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:25:54 [info]: ::1 - - [29/Jan/2026:13:25:54 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:25:54 [info]: Incoming request
+2026-01-29 21:25:54 [info]: Incoming request
+2026-01-29 21:25:54 [info]: Incoming request
+2026-01-29 21:25:54 [info]: ::1 - - [29/Jan/2026:13:25:54 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:25:54 [info]: ::1 - - [29/Jan/2026:13:25:54 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:25:54 [info]: ::1 - - [29/Jan/2026:13:25:54 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:25:55 [info]: ::1 - - [29/Jan/2026:13:25:55 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:25:55 [info]: Incoming request
+2026-01-29 21:25:55 [info]: ::1 - - [29/Jan/2026:13:25:55 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:26:00 [info]: Incoming request
+2026-01-29 21:26:00 [info]: Incoming request
+2026-01-29 21:26:00 [info]: ::1 - - [29/Jan/2026:13:26:00 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:26:00 [info]: Incoming request
+2026-01-29 21:26:00 [info]: Incoming request
+2026-01-29 21:26:00 [info]: Incoming request
+2026-01-29 21:26:00 [info]: Incoming request
+2026-01-29 21:26:00 [info]: Incoming request
+2026-01-29 21:26:00 [info]: ::1 - - [29/Jan/2026:13:26:00 +0000] "GET /api/auth/me HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:26:00 [info]: Incoming request
+2026-01-29 21:26:00 [info]: ::1 - - [29/Jan/2026:13:26:00 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:26:00 [info]: ::1 - - [29/Jan/2026:13:26:00 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:26:00 [info]: ::1 - - [29/Jan/2026:13:26:00 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:26:00 [info]: Incoming request
+2026-01-29 21:26:00 [info]: Incoming request
+2026-01-29 21:26:00 [info]: ::1 - - [29/Jan/2026:13:26:00 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:26:00 [info]: Incoming request
+2026-01-29 21:26:00 [info]: ::1 - - [29/Jan/2026:13:26:00 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:26:00 [info]: Incoming request
+2026-01-29 21:26:00 [info]: ::1 - - [29/Jan/2026:13:26:00 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:26:00 [info]: ::1 - - [29/Jan/2026:13:26:00 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:26:00 [info]: ::1 - - [29/Jan/2026:13:26:00 +0000] "GET /api/auth/me HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:26:00 [info]: ::1 - - [29/Jan/2026:13:26:00 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:26:00 [info]: ::1 - - [29/Jan/2026:13:26:00 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:29:11 [info]: Incoming request
+2026-01-29 21:29:11 [info]: Incoming request
+2026-01-29 21:29:11 [info]: ::1 - - [29/Jan/2026:13:29:11 +0000] "GET /api/auth/me HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:29:11 [info]: Incoming request
+2026-01-29 21:29:11 [info]: ::1 - - [29/Jan/2026:13:29:11 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:29:11 [info]: Incoming request
+2026-01-29 21:29:11 [info]: Incoming request
+2026-01-29 21:29:11 [info]: Incoming request
+2026-01-29 21:29:11 [info]: Incoming request
+2026-01-29 21:29:11 [info]: Incoming request
+2026-01-29 21:29:11 [info]: ::1 - - [29/Jan/2026:13:29:11 +0000] "GET /api/auth/me HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:29:11 [info]: ::1 - - [29/Jan/2026:13:29:11 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:29:11 [info]: ::1 - - [29/Jan/2026:13:29:11 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:29:11 [info]: ::1 - - [29/Jan/2026:13:29:11 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:29:11 [info]: ::1 - - [29/Jan/2026:13:29:11 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:29:11 [info]: Incoming request
+2026-01-29 21:29:11 [info]: ::1 - - [29/Jan/2026:13:29:11 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:29:12 [info]: ::1 - - [29/Jan/2026:13:29:12 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:38:15 [info]: Incoming request
+2026-01-29 21:38:15 [info]: ::1 - - [29/Jan/2026:13:38:15 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:38:15 [info]: Incoming request
+2026-01-29 21:38:15 [info]: ::1 - - [29/Jan/2026:13:38:15 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:40:52 [info]: Incoming request
+2026-01-29 21:40:52 [info]: ::1 - - [29/Jan/2026:13:40:52 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:40:52 [info]: Incoming request
+2026-01-29 21:40:52 [info]: Incoming request
+2026-01-29 21:40:52 [info]: Incoming request
+2026-01-29 21:40:52 [info]: Incoming request
+2026-01-29 21:40:52 [info]: Incoming request
+2026-01-29 21:40:52 [info]: ::1 - - [29/Jan/2026:13:40:52 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 200 1024 "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:40:52 [info]: ::1 - - [29/Jan/2026:13:40:52 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 200 2 "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:40:52 [info]: ::1 - - [29/Jan/2026:13:40:52 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:40:52 [info]: ::1 - - [29/Jan/2026:13:40:52 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 200 2 "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:40:52 [info]: ::1 - - [29/Jan/2026:13:40:52 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:40:52 [info]: Incoming request
+2026-01-29 21:40:52 [info]: Incoming request
+2026-01-29 21:40:52 [info]: Incoming request
+2026-01-29 21:40:52 [info]: Incoming request
+2026-01-29 21:40:52 [info]: ::1 - - [29/Jan/2026:13:40:52 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:40:52 [info]: ::1 - - [29/Jan/2026:13:40:52 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:40:52 [info]: ::1 - - [29/Jan/2026:13:40:52 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:40:52 [info]: ::1 - - [29/Jan/2026:13:40:52 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:41:21 [info]: Incoming request
+2026-01-29 21:41:21 [info]: ::1 - - [29/Jan/2026:13:41:21 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:41:21 [info]: Incoming request
+2026-01-29 21:41:22 [info]: ::1 - - [29/Jan/2026:13:41:22 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:41:24 [info]: Incoming request
+2026-01-29 21:41:24 [info]: ::1 - - [29/Jan/2026:13:41:24 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:41:24 [info]: Incoming request
+2026-01-29 21:41:24 [info]: Incoming request
+2026-01-29 21:41:24 [info]: Incoming request
+2026-01-29 21:41:24 [info]: Incoming request
+2026-01-29 21:41:24 [info]: Incoming request
+2026-01-29 21:41:24 [info]: ::1 - - [29/Jan/2026:13:41:24 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:41:24 [info]: ::1 - - [29/Jan/2026:13:41:24 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:41:24 [info]: ::1 - - [29/Jan/2026:13:41:24 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:41:24 [info]: ::1 - - [29/Jan/2026:13:41:24 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:41:24 [info]: ::1 - - [29/Jan/2026:13:41:24 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:41:24 [info]: Incoming request
+2026-01-29 21:41:24 [info]: Incoming request
+2026-01-29 21:41:24 [info]: Incoming request
+2026-01-29 21:41:24 [info]: Incoming request
+2026-01-29 21:41:24 [info]: ::1 - - [29/Jan/2026:13:41:24 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:41:24 [info]: ::1 - - [29/Jan/2026:13:41:24 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:41:24 [info]: ::1 - - [29/Jan/2026:13:41:24 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:41:24 [info]: ::1 - - [29/Jan/2026:13:41:24 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:49:02 [info]: Incoming request
+2026-01-29 21:49:02 [info]: ::1 - - [29/Jan/2026:13:49:02 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:49:02 [info]: Incoming request
+2026-01-29 21:49:02 [info]: ::1 - - [29/Jan/2026:13:49:02 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:49:06 [info]: Incoming request
+2026-01-29 21:49:06 [info]: ::1 - - [29/Jan/2026:13:49:06 +0000] "GET /api/projects/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:49:06 [info]: Incoming request
+2026-01-29 21:49:06 [info]: Incoming request
+2026-01-29 21:49:06 [info]: ::1 - - [29/Jan/2026:13:49:06 +0000] "GET /api/projects/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:49:06 [info]: ::1 - - [29/Jan/2026:13:49:06 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:49:06 [info]: Incoming request
+2026-01-29 21:49:06 [info]: ::1 - - [29/Jan/2026:13:49:06 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:49:09 [info]: Incoming request
+2026-01-29 21:49:09 [info]: ::1 - - [29/Jan/2026:13:49:09 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:49:09 [info]: Incoming request
+2026-01-29 21:49:09 [info]: ::1 - - [29/Jan/2026:13:49:09 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:49:10 [info]: Incoming request
+2026-01-29 21:49:10 [info]: ::1 - - [29/Jan/2026:13:49:10 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:49:10 [info]: Incoming request
+2026-01-29 21:49:10 [info]: Incoming request
+2026-01-29 21:49:10 [info]: Incoming request
+2026-01-29 21:49:10 [info]: Incoming request
+2026-01-29 21:49:10 [info]: Incoming request
+2026-01-29 21:49:10 [info]: ::1 - - [29/Jan/2026:13:49:10 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:49:10 [info]: ::1 - - [29/Jan/2026:13:49:10 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:49:10 [info]: ::1 - - [29/Jan/2026:13:49:10 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:49:10 [info]: ::1 - - [29/Jan/2026:13:49:10 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:49:10 [info]: Incoming request
+2026-01-29 21:49:10 [info]: Incoming request
+2026-01-29 21:49:10 [info]: Incoming request
+2026-01-29 21:49:10 [info]: ::1 - - [29/Jan/2026:13:49:10 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:49:10 [info]: Incoming request
+2026-01-29 21:49:10 [info]: ::1 - - [29/Jan/2026:13:49:10 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:49:10 [info]: ::1 - - [29/Jan/2026:13:49:10 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:49:10 [info]: ::1 - - [29/Jan/2026:13:49:10 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:49:10 [info]: ::1 - - [29/Jan/2026:13:49:10 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 21:57:55 [info]: Incoming request
+2026-01-29 21:57:55 [info]: ::1 - - [29/Jan/2026:13:57:55 +0000] "GET /health HTTP/1.1" 200 85 "-" "curl/8.7.1"
+2026-01-29 21:58:15 [info]: Incoming request
+2026-01-29 21:58:15 [warn]: Validation failed
+2026-01-29 21:58:15 [info]: ::1 - - [29/Jan/2026:13:58:15 +0000] "POST /api/auth/login HTTP/1.1" 400 206 "-" "curl/8.7.1"
+2026-01-29 21:58:15 [info]: Incoming request
+2026-01-29 21:58:15 [warn]: Validation failed
+2026-01-29 21:58:15 [info]: ::1 - - [29/Jan/2026:13:58:15 +0000] "POST /api/auth/login HTTP/1.1" 400 206 "-" "curl/8.7.1"
+2026-01-29 21:58:15 [info]: Incoming request
+2026-01-29 21:58:15 [warn]: Validation failed
+2026-01-29 21:58:15 [info]: ::1 - - [29/Jan/2026:13:58:15 +0000] "POST /api/auth/login HTTP/1.1" 400 206 "-" "curl/8.7.1"
+2026-01-29 21:58:15 [info]: Incoming request
+2026-01-29 21:58:15 [warn]: Validation failed
+2026-01-29 21:58:15 [info]: ::1 - - [29/Jan/2026:13:58:15 +0000] "POST /api/auth/login HTTP/1.1" 400 206 "-" "curl/8.7.1"
+2026-01-29 21:58:15 [info]: Incoming request
+2026-01-29 21:58:15 [warn]: Validation failed
+2026-01-29 21:58:15 [info]: ::1 - - [29/Jan/2026:13:58:15 +0000] "POST /api/auth/login HTTP/1.1" 400 206 "-" "curl/8.7.1"
+2026-01-29 21:58:15 [info]: Incoming request
+2026-01-29 21:58:15 [info]: ::1 - - [29/Jan/2026:13:58:15 +0000] "POST /api/auth/login HTTP/1.1" 429 48 "-" "curl/8.7.1"
+2026-01-29 22:04:57 [info]: Incoming request
+2026-01-29 22:04:57 [info]: ::1 - - [29/Jan/2026:14:04:57 +0000] "POST /api/auth/login HTTP/1.1" 429 48 "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:05:46 [info]: Incoming request
+2026-01-29 22:05:47 [info]: User logged in successfully
+2026-01-29 22:05:47 [info]: ::1 - - [29/Jan/2026:14:05:47 +0000] "POST /api/auth/login HTTP/1.1" 200 329 "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:05:47 [info]: Incoming request
+2026-01-29 22:05:47 [info]: ::1 - - [29/Jan/2026:14:05:47 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:05:47 [info]: Incoming request
+2026-01-29 22:05:47 [info]: Incoming request
+2026-01-29 22:05:47 [info]: Incoming request
+2026-01-29 22:05:47 [info]: Incoming request
+2026-01-29 22:05:47 [info]: Incoming request
+2026-01-29 22:05:47 [info]: ::1 - - [29/Jan/2026:14:05:47 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:05:47 [info]: ::1 - - [29/Jan/2026:14:05:47 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:05:47 [info]: Incoming request
+2026-01-29 22:05:47 [info]: ::1 - - [29/Jan/2026:14:05:47 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:05:47 [info]: Incoming request
+2026-01-29 22:05:47 [info]: ::1 - - [29/Jan/2026:14:05:47 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:05:47 [info]: ::1 - - [29/Jan/2026:14:05:47 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:05:47 [info]: ::1 - - [29/Jan/2026:14:05:47 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:05:47 [info]: ::1 - - [29/Jan/2026:14:05:47 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:05:47 [info]: Incoming request
+2026-01-29 22:05:47 [info]: Incoming request
+2026-01-29 22:05:47 [info]: ::1 - - [29/Jan/2026:14:05:47 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:05:47 [info]: ::1 - - [29/Jan/2026:14:05:47 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:01 [info]: Incoming request
+2026-01-29 22:06:01 [info]: ::1 - - [29/Jan/2026:14:06:01 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:01 [info]: Incoming request
+2026-01-29 22:06:01 [info]: ::1 - - [29/Jan/2026:14:06:01 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:04 [info]: Incoming request
+2026-01-29 22:06:04 [info]: ::1 - - [29/Jan/2026:14:06:04 +0000] "GET /api/projects/archived HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:04 [info]: Incoming request
+2026-01-29 22:06:04 [info]: ::1 - - [29/Jan/2026:14:06:04 +0000] "GET /api/projects/archived HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:06 [info]: Incoming request
+2026-01-29 22:06:06 [info]: ::1 - - [29/Jan/2026:14:06:06 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:06 [info]: Incoming request
+2026-01-29 22:06:06 [info]: Incoming request
+2026-01-29 22:06:06 [info]: Incoming request
+2026-01-29 22:06:06 [info]: Incoming request
+2026-01-29 22:06:06 [info]: Incoming request
+2026-01-29 22:06:06 [info]: ::1 - - [29/Jan/2026:14:06:06 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:06 [info]: ::1 - - [29/Jan/2026:14:06:06 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:06 [info]: Incoming request
+2026-01-29 22:06:06 [info]: ::1 - - [29/Jan/2026:14:06:06 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:06 [info]: Incoming request
+2026-01-29 22:06:06 [info]: ::1 - - [29/Jan/2026:14:06:06 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:06 [info]: ::1 - - [29/Jan/2026:14:06:06 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:06 [info]: Incoming request
+2026-01-29 22:06:06 [info]: Incoming request
+2026-01-29 22:06:06 [info]: ::1 - - [29/Jan/2026:14:06:06 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:06 [info]: ::1 - - [29/Jan/2026:14:06:06 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:06 [info]: ::1 - - [29/Jan/2026:14:06:06 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:06 [info]: ::1 - - [29/Jan/2026:14:06:06 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:13 [info]: Incoming request
+2026-01-29 22:06:13 [info]: User logged in successfully
+2026-01-29 22:06:13 [info]: ::1 - - [29/Jan/2026:14:06:13 +0000] "POST /api/auth/login HTTP/1.1" 200 330 "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:13 [info]: Incoming request
+2026-01-29 22:06:14 [info]: ::1 - - [29/Jan/2026:14:06:14 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:14 [info]: Incoming request
+2026-01-29 22:06:14 [info]: Incoming request
+2026-01-29 22:06:14 [info]: Incoming request
+2026-01-29 22:06:14 [info]: Incoming request
+2026-01-29 22:06:14 [info]: Incoming request
+2026-01-29 22:06:14 [info]: ::1 - - [29/Jan/2026:14:06:14 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:14 [info]: ::1 - - [29/Jan/2026:14:06:14 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:14 [info]: ::1 - - [29/Jan/2026:14:06:14 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:14 [info]: ::1 - - [29/Jan/2026:14:06:14 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:14 [info]: ::1 - - [29/Jan/2026:14:06:14 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:14 [info]: Incoming request
+2026-01-29 22:06:14 [info]: Incoming request
+2026-01-29 22:06:14 [info]: Incoming request
+2026-01-29 22:06:14 [info]: Incoming request
+2026-01-29 22:06:14 [info]: ::1 - - [29/Jan/2026:14:06:14 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:14 [info]: ::1 - - [29/Jan/2026:14:06:14 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:14 [info]: ::1 - - [29/Jan/2026:14:06:14 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:06:14 [info]: ::1 - - [29/Jan/2026:14:06:14 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:18:52 [info]: Incoming request
+2026-01-29 22:18:52 [info]: Incoming request
+2026-01-29 22:18:52 [info]: ::1 - - [29/Jan/2026:14:18:52 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:18:52 [info]: Incoming request
+2026-01-29 22:18:52 [info]: Incoming request
+2026-01-29 22:18:52 [info]: Incoming request
+2026-01-29 22:18:52 [info]: Incoming request
+2026-01-29 22:18:52 [info]: Incoming request
+2026-01-29 22:18:52 [info]: ::1 - - [29/Jan/2026:14:18:52 +0000] "GET /api/auth/me HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:18:52 [info]: Incoming request
+2026-01-29 22:18:52 [info]: ::1 - - [29/Jan/2026:14:18:52 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:18:52 [info]: ::1 - - [29/Jan/2026:14:18:52 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:18:52 [info]: Incoming request
+2026-01-29 22:18:52 [info]: ::1 - - [29/Jan/2026:14:18:52 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:18:52 [info]: Incoming request
+2026-01-29 22:18:52 [info]: ::1 - - [29/Jan/2026:14:18:52 +0000] "GET /api/auth/me HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:18:52 [info]: ::1 - - [29/Jan/2026:14:18:52 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:18:52 [info]: ::1 - - [29/Jan/2026:14:18:52 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:18:53 [info]: ::1 - - [29/Jan/2026:14:18:53 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:18:53 [info]: Incoming request
+2026-01-29 22:18:53 [info]: ::1 - - [29/Jan/2026:14:18:53 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:18:53 [info]: Incoming request
+2026-01-29 22:18:53 [info]: ::1 - - [29/Jan/2026:14:18:53 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 22:18:53 [info]: ::1 - - [29/Jan/2026:14:18:53 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 23:34:21 [info]: Incoming request
+2026-01-29 23:34:21 [info]: Incoming request
+2026-01-29 23:34:21 [info]: ::1 - - [29/Jan/2026:15:34:21 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 23:34:21 [info]: Incoming request
+2026-01-29 23:34:21 [info]: Incoming request
+2026-01-29 23:34:21 [info]: Incoming request
+2026-01-29 23:34:21 [info]: Incoming request
+2026-01-29 23:34:21 [info]: Incoming request
+2026-01-29 23:34:21 [info]: ::1 - - [29/Jan/2026:15:34:21 +0000] "GET /api/projects HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 23:34:21 [info]: ::1 - - [29/Jan/2026:15:34:21 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 23:34:21 [info]: Incoming request
+2026-01-29 23:34:21 [info]: ::1 - - [29/Jan/2026:15:34:21 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 23:34:21 [info]: Incoming request
+2026-01-29 23:34:21 [info]: ::1 - - [29/Jan/2026:15:34:21 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 23:34:21 [info]: Incoming request
+2026-01-29 23:34:21 [info]: ::1 - - [29/Jan/2026:15:34:21 +0000] "GET /api/tasks/project/6979b7360c3b1c35f8df6612 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 23:34:21 [info]: ::1 - - [29/Jan/2026:15:34:21 +0000] "GET /api/auth/me HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 23:34:21 [info]: Incoming request
+2026-01-29 23:34:21 [info]: ::1 - - [29/Jan/2026:15:34:21 +0000] "GET /api/tasks/project/6978ed711d5ada0a25100532 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 23:34:21 [info]: ::1 - - [29/Jan/2026:15:34:21 +0000] "GET /api/auth/me HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 23:34:22 [info]: ::1 - - [29/Jan/2026:15:34:22 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 23:34:22 [info]: Incoming request
+2026-01-29 23:34:22 [info]: ::1 - - [29/Jan/2026:15:34:22 +0000] "GET /api/tasks/project/6978a0f11d5ada0a2510037e HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+2026-01-29 23:34:22 [info]: ::1 - - [29/Jan/2026:15:34:22 +0000] "GET /api/tasks/project/6978ac411d5ada0a25100390 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
