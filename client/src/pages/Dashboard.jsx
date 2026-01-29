@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import CreateProjectModal from "../components/CreateProjectModal";
 import RoleProtected from "../components/common/RoleProtected";
 import { useRole } from "../hooks/useRole";
+import toast from "../utils/toast";
 import "../styles/Dashboard.css";
 import deleteIcon from "../assets/delete.svg";
 import api from "../services/api";
@@ -30,6 +31,7 @@ function Dashboard() {
     } catch (err) {
       console.error("❌ Failed to load projects:", err);
       setError(err.message);
+      toast.error("Failed to load projects");
       
       // If unauthorized, redirect to login
       if (err.message.includes("token") || err.message.includes("401")) {
@@ -47,14 +49,16 @@ function Dashboard() {
   const handleAddProject = async (newProject) => {
     try {
       console.log("📡 Creating project...", newProject);
+      toast.info("Creating project...");
       const created = await api.createProject(newProject);
       console.log("✅ Project created:", created);
       
       setProjects([...projects, created]);
       setShowCreateModal(false);
+      toast.success("Project created successfully!");
     } catch (err) {
       console.error("❌ Failed to create project:", err);
-      alert(err.message);
+      toast.error("Failed to create project");
     }
   };
 
@@ -74,9 +78,10 @@ function Dashboard() {
       setProjects(projects.map(p => 
         p._id === projectId ? { ...p, status: newStatus } : p
       ));
+      toast.success(`Project status updated to ${newStatus}`);
     } catch (err) {
       console.error("❌ Failed to update status:", err);
-      alert(err.message);
+      toast.error("Failed to update project status");
     }
   };
 
@@ -91,9 +96,10 @@ function Dashboard() {
       console.log("✅ Project deleted");
       
       setProjects(projects.filter(p => p._id !== projectId));
+      toast.success("Project deleted successfully");
     } catch (err) {
       console.error("❌ Failed to delete project:", err);
-      alert(err.message);
+      toast.error("Failed to delete project");
     }
   };
 
