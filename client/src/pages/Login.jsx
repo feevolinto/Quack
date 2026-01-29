@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import toast from "../utils/toast";
 import "../styles/Login.css";
+import logo from "../assets/logo_login.svg";
+import background from "../assets/background_login.png";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -50,13 +52,13 @@ function Login() {
     <div className="login-page">
       {/* Background Gradient Placeholder */}
       <div className="login-background">
-        <img src="/src/assets/background_login.png" alt="" />
+        <img src={background} alt="background" className="" />
       </div>
 
       {/* Left Side - Branding */}
       <div className="login-left">
         <div className="login-brand-container">
-          <img src="/src/assets/logo_login.svg" alt="Quack" className="login-logo-image" />
+          <img src={logo} alt="quack" className="login-logo-image" />
         </div>
 
         <p className="brand-tagline">
